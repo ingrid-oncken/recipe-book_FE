@@ -1,6 +1,6 @@
 import RecipeModal from './RecipeModal'
 import logo from '../logo.svg'
-import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap'
+import { Container, Nav, Navbar } from 'react-bootstrap'
 import { useState } from 'react'
 
 const MainNavbar = () => {
