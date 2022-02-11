@@ -3,7 +3,7 @@ import { Button, Col, Container, Modal, Row } from 'react-bootstrap'
 const RecipeModal = (props) => {
   return (
     <Modal {...props} aria-labelledby="contained-modal-title-vcenter">
-      <Modal.Header>
+      <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter" className="m-auto">
           New Recipe
         </Modal.Title>
