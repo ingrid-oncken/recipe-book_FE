@@ -1,12 +1,15 @@
 //import { useState } from 'react'
 import { Card, CardDeck, Container, Col, Row } from 'react-bootstrap'
+import SideNav from './SideNav'
 
 const Home = () => {
   //const [selectedRecipe, setSelectedRecipe] = useState(undefined)
 
   return (
-    <Container>
-      <Row className="mt-3 justify-content-center">
+    <Container fluid>
+      <Row className="mt-3 flex-xl-nowrap">
+        <SideNav />
+
         <CardDeck>
           <Card>
             <Card.Img variant="top" src="holder.js/100px160" />
