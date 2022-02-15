@@ -1,8 +1,9 @@
-import RecipeModal from './RecipeModal'
-import { Link } from 'react-router-dom'
 import logo from '../logo.svg'
-import { Container, Nav, Navbar } from 'react-bootstrap'
+import RecipeModal from './RecipeModal'
+
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { Container, Nav, Navbar } from 'react-bootstrap'
 
 const MainNavbar = () => {
   const [modalShow, setModalShow] = useState(false)
@@ -16,12 +17,14 @@ const MainNavbar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto font-weight-bold">
-            <Nav.Link href="#home">Home</Nav.Link>
+            <Link to="/" className="nav-link">
+              Home
+            </Link>
+            {/* <Nav.Link href="#home">Home</Nav.Link> */}
             <Nav.Link onClick={() => setModalShow(true)}>+ Recipe</Nav.Link>
             <Link to="/login" className="nav-link">
               Login
             </Link>
-            
           </Nav>
         </Navbar.Collapse>
       </Container>

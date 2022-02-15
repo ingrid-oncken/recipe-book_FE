@@ -1,4 +1,4 @@
-import {} from "react-bootstrap"
+import { Button, Col, Form } from 'react-bootstrap'
 
 const Login = (props) => (
   <Form>
@@ -59,3 +59,4 @@ const Login = (props) => (
     </Form.Group>
   </Form>
 )
+export default Login
