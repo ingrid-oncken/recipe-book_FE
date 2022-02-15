@@ -1,4 +1,5 @@
 import RecipeModal from './RecipeModal'
+import { Link } from 'react-router-dom'
 import logo from '../logo.svg'
 import { Container, Nav, Navbar } from 'react-bootstrap'
 import { useState } from 'react'
@@ -17,7 +18,10 @@ const MainNavbar = () => {
           <Nav className="ml-auto font-weight-bold">
             <Nav.Link href="#home">Home</Nav.Link>
             <Nav.Link onClick={() => setModalShow(true)}>+ Recipe</Nav.Link>
-            <Nav.Link href="#Search">Search</Nav.Link>
+            <Link to="/login" className="nav-link">
+              Login
+            </Link>
+            
           </Nav>
         </Navbar.Collapse>
       </Container>
