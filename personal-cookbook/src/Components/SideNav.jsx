@@ -76,6 +76,114 @@ const SideNav = (props) => (
           </Card.Body>
         </Accordion.Collapse>
       </Card>
+      <Card className="border-0  text-left">
+        <Card.Header>
+          <Accordion.Toggle
+            as={Button}
+            variant="link"
+            eventKey="2"
+            className="pl-0  text-muted"
+          >
+            Lunch
+          </Accordion.Toggle>
+        </Card.Header>
+        <Accordion.Collapse eventKey="2">
+          <Card.Body>
+            <Nav defaultActiveKey="/home" className="flex-column text-left">
+              <Nav.Link href="/home" className="text-secondary">
+                Quick Sandwiches
+              </Nav.Link>
+              <Nav.Link eventKey="link-2" className="text-secondary">
+                Chicken Piri-Piri
+              </Nav.Link>
+              <Nav.Link eventKey="link-2" className="text-secondary">
+                Lasagna
+              </Nav.Link>
+            </Nav>
+          </Card.Body>
+        </Accordion.Collapse>
+      </Card>
+      <Card className="border-0  text-left">
+        <Card.Header>
+          <Accordion.Toggle
+            as={Button}
+            variant="link"
+            eventKey="3"
+            className="pl-0  text-muted"
+          >
+            Healthy Snacks
+          </Accordion.Toggle>
+        </Card.Header>
+        <Accordion.Collapse eventKey="3">
+          <Card.Body>
+            <Nav defaultActiveKey="/home" className="flex-column text-left">
+              <Nav.Link href="/home" className="text-secondary">
+                Kale Crackers
+              </Nav.Link>
+              <Nav.Link eventKey="link-1" className="text-secondary">
+                Sunflower Seeds Crackers
+              </Nav.Link>
+              <Nav.Link eventKey="link-2" className="text-secondary">
+                Roasted Chickpeas
+              </Nav.Link>
+            </Nav>
+          </Card.Body>
+        </Accordion.Collapse>
+      </Card>
+      <Card className="border-0  text-left">
+        <Card.Header>
+          <Accordion.Toggle
+            as={Button}
+            variant="link"
+            eventKey="4"
+            className="pl-0  text-muted"
+          >
+            Dinner
+          </Accordion.Toggle>
+        </Card.Header>
+        <Accordion.Collapse eventKey="4">
+          <Card.Body>
+            <Nav defaultActiveKey="/home" className="flex-column text-left">
+              <Nav.Link href="/home" className="text-secondary">
+                Pumpkin Soup
+              </Nav.Link>
+              <Nav.Link eventKey="link-1" className="text-secondary">
+                Minestrone Soup
+              </Nav.Link>
+              <Nav.Link eventKey="link-2" className="text-secondary">
+                Funghi Risotto
+              </Nav.Link>
+            </Nav>
+          </Card.Body>
+        </Accordion.Collapse>
+      </Card>
+      <Card className="border-0  text-left">
+        <Card.Header>
+          <Accordion.Toggle
+            as={Button}
+            variant="link"
+            eventKey="5"
+            className="pl-0  text-muted"
+          >
+            Desseart
+          </Accordion.Toggle>
+        </Card.Header>
+        <Accordion.Collapse eventKey="1">
+          <Card.Body>
+            <Nav defaultActiveKey="/home" className="flex-column text-left">
+              <Nav.Link href="/home" className="text-secondary">
+                Berries Panna Cotta
+              </Nav.Link>
+              <Nav.Link eventKey="link-1" className="text-secondary">
+                Tiramissu
+              </Nav.Link>
+              <Nav.Link eventKey="link-2" className="text-secondary">
+                Mousse au Chocolate
+              </Nav.Link>
+            </Nav>
+          </Card.Body>
+        </Accordion.Collapse>
+      </Card>
     </Accordion>
   </Col>
 )
