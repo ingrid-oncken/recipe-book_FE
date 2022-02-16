@@ -7,6 +7,7 @@ const Home = () => {
   return (
     
       <Col sm={12} md={9} xl={8}>
+        <h1>Test</h1>
         <CardDeck className="mb-3">
           <Card>
             <Card.Img variant="top" src="holder.js/100px160" />

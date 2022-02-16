@@ -213,8 +213,8 @@ const SideNav = (props) => (
               </Card>
             </Accordion>
           </Col>
-        </Row>
         <Home />
+        </Row>
       </main>
     </Container>
   </>
