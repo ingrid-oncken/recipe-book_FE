@@ -1,5 +1,6 @@
 import './App.css'
 import Login from './Components/Login'
+import SignUp from './Components/SignUp'
 import Footer from './Components/Footer'
 import SideNav from './Components/SideNav'
 
@@ -12,6 +13,7 @@ function App() {
         <Routes>
           <Route path="/" exact element={<SideNav />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
         </Routes>
       </BrowserRouter>
       <Footer />

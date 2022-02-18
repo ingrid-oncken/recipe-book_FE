@@ -1,8 +1,7 @@
 import logo from '../logo.svg'
-import { Link } from 'react-router-dom'
 import { Button, Col, Form, Image } from 'react-bootstrap'
 
-const Login = () => (
+const SignUp = () => (
   <Form className="form-signin pt-5 border border-danger rounded shadow">
     <Form.Group>
       <div className="text-center mb-4">
@@ -35,11 +34,11 @@ const Login = () => (
     <Col sm={10} className="mx-auto">
       <p className="text-muted">
         Don't have an account yet?{' '}
-        <Link to="/signup" class="text-warning stretched-link">
+        <a href="#" class="text-warning stretched-link">
           Sign up here
-        </Link>{' '}
+        </a>{' '}
       </p>
     </Col>
   </Form>
 )
-export default Login
+export default SignUp

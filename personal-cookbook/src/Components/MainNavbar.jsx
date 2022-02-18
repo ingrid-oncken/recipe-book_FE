@@ -20,7 +20,7 @@ const MainNavbar = () => {
             <Link to="/" className="nav-link">
               Home
             </Link>
-            {/* <Nav.Link href="#home">Home</Nav.Link> */}
+           
             <Nav.Link onClick={() => setModalShow(true)}>+ Recipe</Nav.Link>
             <Link to="/login" className="nav-link">
               Login
