@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 import { Button, Col, Form, Image } from 'react-bootstrap'
 
 const Login = () => (
-  <Form className="form-signin pt-5 border border-danger rounded shadow">
+  <Form className="form-signin py-5 border border-danger rounded shadow">
     <Form.Group>
-      <div className="text-center mb-4">
+      <div className="mb-4">
         <Image src={logo} className="App-logo" alt="logo" />
       </div>
       <Form.Label column sm={2}>
@@ -33,12 +33,12 @@ const Login = () => (
       </Col>
     </Form.Group>
     <Col sm={10} className="mx-auto">
-      <p className="text-muted">
+      <Form.Text className="text-muted">
         Don't have an account yet?{' '}
         <Link to="/signup" class="text-warning stretched-link">
           Sign up here
         </Link>{' '}
-      </p>
+      </Form.Text>
     </Col>
   </Form>
 )
