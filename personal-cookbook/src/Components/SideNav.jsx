@@ -129,7 +129,7 @@ const SideNav = (props) => (
                     eventKey="3"
                     className="pl-0  text-muted"
                   >
-                    Healthy Snacks
+                    Snacks
                   </Accordion.Toggle>
                 </Card.Header>
                 <Accordion.Collapse eventKey="3">
@@ -213,7 +213,7 @@ const SideNav = (props) => (
               </Card>
             </Accordion>
           </Col>
-        <Home />
+          <Home />
         </Row>
       </main>
     </Container>
