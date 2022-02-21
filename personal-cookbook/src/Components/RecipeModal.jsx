@@ -1,6 +1,5 @@
 import {
   Button,
-  ButtonToolbar,
   Col,
   Container,
   Dropdown,
@@ -13,6 +12,7 @@ import {
   Row,
   Tab,
 } from 'react-bootstrap'
+
 import {
   FaListOl,
   FaUserEdit,
@@ -20,6 +20,7 @@ import {
   FaTags,
   FaTrashAlt,
 } from 'react-icons/fa'
+
 import { GiCookingPot, GiForkKnifeSpoon, GiSecretBook } from 'react-icons/gi'
 import { RiKnifeLine } from 'react-icons/ri'
 
@@ -29,6 +30,7 @@ const RecipeModal = (props) => {
       {...props}
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
+      id="recipe-modal"
       centered
     >
       <Modal.Header closeButton>
@@ -51,7 +53,7 @@ const RecipeModal = (props) => {
               variant="outline-secondary"
               menuAlign="right"
               title="Cathegory"
-              id="input-group-dropdown-2"
+              id="input-dropdown-modal"
             >
               <Dropdown.Item href="#">Brekfast</Dropdown.Item>
               <Dropdown.Item href="#">Salad</Dropdown.Item>

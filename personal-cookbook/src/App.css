@@ -38,6 +38,21 @@ nav .navbar-nav > a {
   margin-top: 20vh;
 }
 
-/* .form-signin p {
-  font-size: small;
-} */
+#recipe-modal .input-group-text {
+  background-color: #ffeeba;
+  color: #856404;
+  border-color: rgba(0, 0, 0, 0.125);
+}
+
+#input-dropdown-modal {
+  background-color: #ffeeba;
+  color: #856404;
+  border-color: rgba(0, 0, 0, 0.125);
+}
+#input-dropdown-modal:hover {
+  background-color: #ffe8b1;
+}
+
+#recipe-modal .form-control {
+  border-color: rgba(0, 0, 0, 0.125);
+}
