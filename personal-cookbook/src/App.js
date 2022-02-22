@@ -5,21 +5,22 @@ import Footer from './Components/Footer'
 import SideNav from './Components/SideNav'
 import FullRecipe from './Components/FullRecipe'
 
-import { Routes, Route, BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
+    <BrowserRouter>
+      <div className="App">
         <Routes>
-          <Route path="/" exact element={<SideNav />} />
+          <Route path="/" exact element={<SideNav />} className="App">
+            <Route path="/fullrecipe" element={<FullRecipe />} />
+          </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/fullrecipe" element={<FullRecipe />} />
         </Routes>
-      </BrowserRouter>
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </BrowserRouter>
   )
 }
 
