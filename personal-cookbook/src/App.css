@@ -11,8 +11,10 @@ nav .navbar-nav > a {
   font-size: 1.2rem;
 }
 
-.layout-panel {
+.sidebar-panel {
   background-color: #f7f7f7;
+  position: sticky;
+  height: 77vh;
 }
 
 .form-signin {
@@ -41,4 +43,3 @@ nav .navbar-nav > a {
 #recipe-modal .form-control {
   border-color: rgba(0, 0, 0, 0.125);
 }
-

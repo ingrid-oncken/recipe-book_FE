@@ -23,7 +23,7 @@ const Layout = (props) => (
       <main>
         {/* SIDEBAR START */}
         <Row className="mt-3 flex-xl-nowrap">
-          <Col sm={12} md={3} xl={2} className="layout-panel bg-light">
+          <Col sm={12} md={3} xl={2} className="sidebar-panel bg-light">
             <Form className="d-flex pt-3">
               <FormControl
                 id="recipe-reach-input"
