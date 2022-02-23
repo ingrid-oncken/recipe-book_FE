@@ -11,7 +11,7 @@ const MainNavbar = () => {
   return (
     <Navbar bg="warning" variant="dark" expand="lg">
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/">
           <img src={logo} className="App-logo" alt="logo" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

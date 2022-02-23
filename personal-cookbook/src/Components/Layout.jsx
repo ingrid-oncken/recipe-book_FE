@@ -9,16 +9,21 @@ import {
   Nav,
   Row,
 } from 'react-bootstrap'
-import Home from './Home'
-import MainNavbar from './MainNavbar'
 
-const SideNav = (props) => (
+import MainNavbar from './MainNavbar'
+import { Outlet } from 'react-router-dom'
+
+const Layout = (props) => (
   <>
+    {/* NAVBAR COMPONENT */}
     <MainNavbar />
+
     <Container fluid>
+      {/* MAIN CONTAINS SIDEBAR + CONTENT */}
       <main>
+        {/* SIDEBAR START */}
         <Row className="mt-3 flex-xl-nowrap">
-          <Col sm={12} md={3} xl={2} className="sidenav-panel bg-light">
+          <Col sm={12} md={3} xl={2} className="layout-panel bg-light">
             <Form className="d-flex pt-3">
               <FormControl
                 id="recipe-reach-input"
@@ -189,10 +194,10 @@ const SideNav = (props) => (
                     eventKey="5"
                     className="pl-0  text-muted"
                   >
-                    Desseart
+                    Dessearts
                   </Accordion.Toggle>
                 </Card.Header>
-                <Accordion.Collapse eventKey="1">
+                <Accordion.Collapse eventKey="5">
                   <Card.Body>
                     <Nav
                       defaultActiveKey="/home"
@@ -213,11 +218,12 @@ const SideNav = (props) => (
               </Card>
             </Accordion>
           </Col>
-          <Home />
+          <Outlet />
         </Row>
+        {/* SIDEBAR END */}
       </main>
     </Container>
   </>
 )
 
-export default SideNav
+export default Layout

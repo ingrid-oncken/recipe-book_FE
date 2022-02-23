@@ -1,4 +1,5 @@
 import { Card } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 const RecipeCards = () => (
   <Card>
@@ -12,7 +13,9 @@ const RecipeCards = () => (
         This card has supporting text below as a natural lead-in to additional
         content.{' '}
       </Card.Text>
-      <Card.Link href="#">See full recipe...</Card.Link>
+      <Link className="card-link" to="/fullrecipe">
+        See full recipe...
+      </Link>
     </Card.Body>
     <Card.Footer>
       <small className="text-muted">Last opened 3 mins ago</small>
