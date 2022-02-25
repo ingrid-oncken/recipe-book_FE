@@ -1,6 +1,6 @@
 import { Card } from 'react-bootstrap'
 
-const FullRecipe = () => {
+const MethodTab = () => {
   return (
     <Card.Body>
       <Card.Title>Macarons</Card.Title>
@@ -8,4 +8,4 @@ const FullRecipe = () => {
     </Card.Body>
   )
 }
-export default FullRecipe
+export default MethodTab
