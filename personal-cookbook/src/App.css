@@ -43,3 +43,11 @@ nav .navbar-nav > a {
 #recipe-modal .form-control {
   border-color: rgba(0, 0, 0, 0.125);
 }
+
+#full-recipe-card .card-title {
+  font-size: 2rem;
+}
+#full-recipe-card .card-title:hover {
+  color: red !important;
+  cursor: pointer;
+}
