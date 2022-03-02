@@ -23,7 +23,7 @@ const FullRecipe = () => {
       <Image src={Macarons} className="mt-2" rounded fluid />
 
       <section className="mt-4">
-        <h4>Macarons</h4>
+        <h4 className="text-dark">Macarons</h4>
         <Tabs defaultActiveKey="second">
           <Tab eventKey="first" title="Ingredients">
             <IngredientsTab />

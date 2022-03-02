@@ -53,3 +53,7 @@ nav .navbar-nav > a {
 #full-recipe-container .nav-link:hover {
   color: #856404;
 }
+
+#full-recipe-container > section li {
+  list-style-type: none;
+}

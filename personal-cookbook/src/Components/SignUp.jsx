@@ -6,7 +6,9 @@ const SignUp = () => (
   <Form className="form-signin py-5 border border-warning rounded shadow">
     <Form.Group>
       <div className="mb-4">
-        <Image src={logo} className="App-logo" alt="logo" />
+        <Link to="/">
+          <Image src={logo} className="App-logo" alt="logo" />
+        </Link>
       </div>
       <Col sm={10} className="mx-auto">
         <Form.Control className="mb-2" placeholder="First name" />

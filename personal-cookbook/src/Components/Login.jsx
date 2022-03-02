@@ -6,7 +6,9 @@ const Login = () => (
   <Form className="form-signin py-5 border border-danger rounded shadow">
     <Form.Group>
       <div className="mb-4">
-        <Image src={logo} className="App-logo" alt="logo" />
+        <Link to="/">
+          <Image src={logo} className="App-logo" alt="logo" />
+        </Link>
       </div>
       <Form.Label column sm={2}>
         Email
