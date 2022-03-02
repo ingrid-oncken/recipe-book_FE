@@ -44,10 +44,12 @@ nav .navbar-nav > a {
   border-color: rgba(0, 0, 0, 0.125);
 }
 
-#full-recipe-card .card-title {
-  font-size: 2rem;
+#full-recipe-container .nav-link {
+  color: gray;
 }
-#full-recipe-card .card-title:hover {
-  color: red !important;
-  cursor: pointer;
+#full-recipe-container .nav-link.active {
+  color: #f0ad4e;
+}
+#full-recipe-container .nav-link:hover {
+  color: #856404;
 }

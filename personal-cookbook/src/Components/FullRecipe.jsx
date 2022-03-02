@@ -6,7 +6,7 @@ import {
   Card,
   Container,
   Nav,
-  Col,
+  Image,
   Tab,
   TabContent,
   TabPane,
@@ -19,78 +19,23 @@ const FullRecipe = () => {
   const [key, setKey] = useState('home')
 
   return (
-    <Container>
-      {/* <Card id="full-recipe-card" className="mb-4">
-        <Card.Img variant="top" src={Macarons} />
-        <Card.ImgOverlay>
-          <Card.Title className="text-left text-secondary">
-            <FaRegHeart />
-          </Card.Title>
-        </Card.ImgOverlay>
-        <Card.Header>
-          <Nav
-            variant="tabs"
-            // defaultActiveKey="ingredients"
-            id="recipe-nav-tabs"
-            activeKey={key}
-            onSelect={(k) => setKey(k)}
-          >
-            <Nav.Item>
-              <Nav.Link eventKey="#first" className="text-warning">
-                Ingredients
-              </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="#second" className="text-warning">
-                Method
-              </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link href="#disabled" disabled>
-                Video
-              </Nav.Link>
-            </Nav.Item>
-          </Nav>
-          
-        </Card.Header>
+    <Container id="full-recipe-container" className="border rounded shadow-sm">
+      <Image src={Macarons} className="mt-2" rounded fluid />
 
-
-        <Card.Body>
-          
-        </Card.Body>
-        <Card.Footer className="text-muted">
-          <Button variant="warning">Edit this recipe</Button>
-        </Card.Footer>
-      </Card> */}
-
-      <Card>
-        {/* <Card.Img variant="top" src={Macarons} />
-        <Card.ImgOverlay>
-          <Card.Title className="text-left text-secondary">
-            <FaRegHeart />
-          </Card.Title>
-        </Card.ImgOverlay> */}
-        <Tabs
-          defaultActiveKey="profile"
-          id="uncontrolled-tab-example"
-          className="card-header-tabs"
-        >
-          <Tab eventKey="home" title="Home" className="card-body">
+      <section className="mt-4">
+        <h4>Macarons</h4>
+        <Tabs defaultActiveKey="second">
+          <Tab eventKey="first" title="Ingredients">
             <IngredientsTab />
           </Tab>
-          <Tab eventKey="profile" title="Profile" className="card-body">
-            teste 2
+          <Tab eventKey="second" title="Method">
+            <MethodTab />
           </Tab>
-          <Tab
-            eventKey="contact"
-            title="Contact"
-            disabled
-            className="card-body"
-          >
-            lalalalalal
+          <Tab eventKey="third" title="Video" disabled>
+            Hii, I am 3rd tab content
           </Tab>
         </Tabs>
-      </Card>
+      </section>
     </Container>
   )
 }

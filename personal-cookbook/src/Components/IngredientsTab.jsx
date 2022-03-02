@@ -4,7 +4,7 @@ import { Card, Form, ListGroup } from 'react-bootstrap'
 const IngredientsTab = () => {
   return (
     <Card.Body>
-      <Card.Title>Macarons</Card.Title>
+      
       <Card.Text>
         <ListGroup className="text-left mb-2">
           <Card.Subtitle className="my-2 text-muted">

@@ -97,7 +97,7 @@ const Layout = (props) => (
                 </Accordion.Collapse>
               </Card>
               <Card className="border-0  text-left">
-                <Card.Header>
+                <Card.Header className="border-0">
                   <Accordion.Toggle
                     as={Button}
                     variant="link"
@@ -107,6 +107,7 @@ const Layout = (props) => (
                     Lunch
                   </Accordion.Toggle>
                 </Card.Header>
+
                 <Accordion.Collapse eventKey="2">
                   <Card.Body>
                     <Nav
