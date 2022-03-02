@@ -343,7 +343,7 @@ const RecipeModal = (props) => {
             <FormControl
               as="textarea"
               aria-label="With textarea"
-              placeholder="Ingredients"
+              placeholder="Ingredients separeted by coma: flour, chocolate, baking powder..."
             />
           </InputGroup>
           <InputGroup className="my-3">

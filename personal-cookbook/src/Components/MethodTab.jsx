@@ -1,4 +1,4 @@
-import { Card } from 'react-bootstrap'
+import { Card, Tab, Col } from 'react-bootstrap'
 
 const MethodTab = () => {
   return (
