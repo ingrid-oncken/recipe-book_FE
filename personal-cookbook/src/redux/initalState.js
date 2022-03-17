@@ -3,7 +3,7 @@ const initialState = {
     loading: false,
     error: false,
   },
-  user: {
+  userState: {
     _id: '',
     firstName: '',
     surname: '',
@@ -12,3 +12,4 @@ const initialState = {
     isUserFounded: false,
   },
 }
+export default initialState

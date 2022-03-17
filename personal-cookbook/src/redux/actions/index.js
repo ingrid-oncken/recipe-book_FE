@@ -8,7 +8,7 @@ import {
 } from './types.js'
 
 export const registerAction = (userObject) => {
-  return (dispatch) => {
+  return async (dispatch) => {
     try {
       dispatch({
         type: LOADING,

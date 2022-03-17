@@ -1,22 +1,13 @@
 import { useState } from 'react'
 import Macarons from '../data/macarons944X270.png'
-import { FaRegHeart } from 'react-icons/fa'
-import {
-  Button,
-  Card,
-  Container,
-  Nav,
-  Image,
-  Tab,
-  TabContent,
-  TabPane,
-} from 'react-bootstrap'
+//import { FaRegHeart } from 'react-icons/fa'
+import { Container, Image, Tab } from 'react-bootstrap'
 import IngredientsTab from './IngredientsTab'
 import MethodTab from './MethodTab'
 import Tabs from 'react-bootstrap/Tabs'
 
 const FullRecipe = () => {
-  const [key, setKey] = useState('home')
+  //const [key, setKey] = useState('home')
 
   return (
     <Container id="full-recipe-container" className="border rounded shadow-sm">

@@ -13,13 +13,7 @@ import {
   Tab,
 } from 'react-bootstrap'
 
-import {
-  FaListOl,
-  FaUserEdit,
-  FaRegClock,
-  FaTags,
-  FaTrashAlt,
-} from 'react-icons/fa'
+import { FaListOl, FaUserEdit, FaRegClock, FaTrashAlt } from 'react-icons/fa'
 
 import { GiCookingPot, GiForkKnifeSpoon, GiSecretBook } from 'react-icons/gi'
 import { RiKnifeLine } from 'react-icons/ri'

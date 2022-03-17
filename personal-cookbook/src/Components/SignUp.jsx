@@ -2,8 +2,16 @@ import logo from '../logo.svg'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { Button, Col, Form, Image } from 'react-bootstrap'
+import { connect, useDispatch } from 'react-redux'
+import { registerAction } from '../redux/actions/index.js'
 
-const SignUp = () => {
+const mapStateToProps = (state) => ({ user: state.userState })
+
+const mapDispatchToProps = (dispatch) => ({
+  register: (userObject) => dispatch(registerAction(userObject)),
+})
+
+const SignUp = ({ register, user }) => {
   const [newUser, setNewUser] = useState({
     firstName: '',
     surname: '',
@@ -13,6 +21,7 @@ const SignUp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    register(newUser)
   }
   const handleChange = (e) => {
     console.log(e.target.value)
@@ -21,7 +30,10 @@ const SignUp = () => {
   }
 
   return (
-    <Form className="form-signin py-5 border border-warning rounded shadow">
+    <Form
+      className="form-signin py-5 border border-warning rounded shadow"
+      onSubmit={handleSubmit}
+    >
       <Form.Group>
         <div className="mb-4">
           <Link to="/">
@@ -88,4 +100,4 @@ const SignUp = () => {
     </Form>
   )
 }
-export default SignUp
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp)
