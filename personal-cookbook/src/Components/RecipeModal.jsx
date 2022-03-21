@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import {
   Button,
   Col,
@@ -18,7 +19,24 @@ import { FaListOl, FaUserEdit, FaRegClock, FaTrashAlt } from 'react-icons/fa'
 import { GiCookingPot, GiForkKnifeSpoon, GiSecretBook } from 'react-icons/gi'
 import { RiKnifeLine } from 'react-icons/ri'
 
-const RecipeModal = (props) => {
+const RecipeModal = ({ recipes }) => {
+  const [newRecipe, setNewRecipe] = useState({
+    firstName: '',
+    surname: '',
+    email: '',
+    password: '',
+  })
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    register(newUser)
+  }
+  const handleChange = (e) => {
+    console.log(e.target.value)
+    const key = e.target.name
+    setNewUser({ ...newUser, [key]: e.target.value })
+  }
+
   return (
     <Modal
       {...props}

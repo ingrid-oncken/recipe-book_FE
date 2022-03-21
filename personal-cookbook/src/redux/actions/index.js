@@ -8,14 +8,7 @@ import {
 } from './types.js'
 
 export const registerAction = (userObject) => {
-  console.log(
-    `this is CLG of userObject -- line 12 -- actions/index.js ${userObject}`
-  )
   return async (dispatch) => {
-    console.log(
-      `this is CLG of userObject -- line 16
-       -- actions/index.js ${userObject}`
-    )
     try {
       dispatch({
         type: LOADING,
@@ -37,17 +30,9 @@ export const registerAction = (userObject) => {
       console.log(
         `this is CLG of resp await fetch -- line 38 -- actions/index.js ${resp}`
       )
-      console.log(
-        `this is CLG of userObject -- line 41 -- actions/index.js ${userObject}`
-      )
 
       if (resp.ok) {
-        console.log(
-          `this is CLG of resp inside if -- line 46 -- actions/index.js ${resp}`
-        )
-
         let user = await resp.json()
-        console.log(`this is CLG USER -- line 50 -- actions/index.js ${user}`)
 
         dispatch({
           type: REGISTER_SUCCESS,

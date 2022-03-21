@@ -11,7 +11,7 @@ const mapDispatchToProps = (dispatch) => ({
   register: (userObject) => dispatch(registerAction(userObject)),
 })
 
-const SignUp = ({ register, user }) => {
+const SignUp = ({ register }) => {
   const [newUser, setNewUser] = useState({
     firstName: '',
     surname: '',
@@ -30,7 +30,10 @@ const SignUp = ({ register, user }) => {
   }
 
   return (
-    <Form className="form-signin py-5 border border-warning rounded shadow" onSubmit={handleSubmit}>
+    <Form
+      className="form-signin py-5 border border-warning rounded shadow"
+      onSubmit={handleSubmit}
+    >
       <Form.Group>
         <div className="mb-4">
           <Link to="/">
@@ -97,4 +100,4 @@ const SignUp = ({ register, user }) => {
     </Form>
   )
 }
-export default connect(mapStateToProps, mapDispatchToProps) (SignUp)
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp)
