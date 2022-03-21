@@ -8,8 +8,8 @@ const initialState = {
     firstName: '',
     surname: '',
     email: '',
-    isLoggedIn: false,
-    isUserFounded: false,
+    // isLoggedIn: false,
+    // isUserFounded: false,
   },
 }
 export default initialState

@@ -5,7 +5,7 @@ import { Button, Col, Form, Image } from 'react-bootstrap'
 import { connect, useDispatch } from 'react-redux'
 import { registerAction } from '../redux/actions/index.js'
 
-const mapStateToProps = (state) => ({ user: state.userState })
+const mapStateToProps = (state) => ({ user: state.user })
 
 const mapDispatchToProps = (dispatch) => ({
   register: (userObject) => dispatch(registerAction(userObject)),
@@ -30,10 +30,7 @@ const SignUp = ({ register, user }) => {
   }
 
   return (
-    <Form
-      className="form-signin py-5 border border-warning rounded shadow"
-      onSubmit={handleSubmit}
-    >
+    <Form className="form-signin py-5 border border-warning rounded shadow" onSubmit={handleSubmit}>
       <Form.Group>
         <div className="mb-4">
           <Link to="/">
@@ -100,4 +97,4 @@ const SignUp = ({ register, user }) => {
     </Form>
   )
 }
-export default connect(mapStateToProps, mapDispatchToProps)(SignUp)
+export default connect(mapStateToProps, mapDispatchToProps) (SignUp)

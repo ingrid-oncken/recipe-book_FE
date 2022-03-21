@@ -30,24 +30,24 @@ export const registerAction = (userObject) => {
         method: 'POST',
         body: JSON.stringify(userObject),
         headers: {
-          contentType: 'application/json',
+          'Content-Type': 'application/json',
         },
       })
 
       console.log(
-        `this is CLG of resp await fetch -- line 30 -- actions/index.js ${resp}`
+        `this is CLG of resp await fetch -- line 38 -- actions/index.js ${resp}`
       )
       console.log(
-        `this is CLG of userObject -- line 34 -- actions/index.js ${userObject}`
+        `this is CLG of userObject -- line 41 -- actions/index.js ${userObject}`
       )
 
       if (resp.ok) {
         console.log(
-          `this is CLG of resp inside if -- line 39 -- actions/index.js ${resp}`
+          `this is CLG of resp inside if -- line 46 -- actions/index.js ${resp}`
         )
 
-        let user = resp.json()
-        console.log(`this is CLG USER -- line 43 -- actions/index.js ${user}`)
+        let user = await resp.json()
+        console.log(`this is CLG USER -- line 50 -- actions/index.js ${user}`)
 
         dispatch({
           type: REGISTER_SUCCESS,
