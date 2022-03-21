@@ -21,20 +21,29 @@ import { RiKnifeLine } from 'react-icons/ri'
 
 const RecipeModal = ({ recipes }) => {
   const [newRecipe, setNewRecipe] = useState({
-    firstName: '',
-    surname: '',
-    email: '',
-    password: '',
+    recipeTitle: '',
+    authorName: '',
+    user: '',
+    cathegory: '',
+    nPortions: '',
+    prepTime: '',
+    totalTime: '',
+    prepMethods: '',
+    tags: '',
+    ingredients: '',
+    prepSteps: '',
+    personalNote: '',
+    pictures: '',
   })
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    register(newUser)
+    recipes(newRecipe)
   }
   const handleChange = (e) => {
     console.log(e.target.value)
     const key = e.target.name
-    setNewUser({ ...newUser, [key]: e.target.value })
+    setNewUser({ ...newRecipe, [key]: e.target.value })
   }
 
   return (
@@ -59,6 +68,9 @@ const RecipeModal = ({ recipes }) => {
               placeholder="Recipe title"
               aria-label="recipe title"
               aria-describedby="basic-addon1"
+              name="recipeTitle"
+              value={newRecipe.recipeTitle}
+              onChange={handleChange}
             />
             <DropdownButton
               as={InputGroup.Append}
@@ -66,6 +78,9 @@ const RecipeModal = ({ recipes }) => {
               menuAlign="right"
               title="Cathegory"
               id="input-dropdown-modal"
+              name="cathegory"
+              value={newRecipe.cathegory}
+              onChange={handleChange}
             >
               <Dropdown.Item href="#">Brekfast</Dropdown.Item>
               <Dropdown.Item href="#">Salad</Dropdown.Item>
@@ -90,6 +105,9 @@ const RecipeModal = ({ recipes }) => {
                   aria-describedby="basic-addon3"
                   placeholder="Author name or url"
                   aria-label="Author name or url"
+                  name="authorName"
+                  value={newRecipe.authorName}
+                  onChange={handleChange}
                 />
               </InputGroup>
             </Col>
@@ -104,7 +122,12 @@ const RecipeModal = ({ recipes }) => {
                   </InputGroup.Text>
                 </InputGroup.Prepend>
 
-                <Form.Control as="select">
+                <Form.Control
+                  as="select"
+                  name="nPortions"
+                  value={newRecipe.nPortions}
+                  onChange={handleChange}
+                >
                   <option>Portions</option>
                   <option>1</option>
                   <option>2</option>
@@ -126,7 +149,13 @@ const RecipeModal = ({ recipes }) => {
                     <RiKnifeLine />
                   </InputGroup.Text>
                 </InputGroup.Prepend>
-                <FormControl aria-label="preparation time" placeholder="hh" />
+                <FormControl
+                  aria-label="preparation time"
+                  placeholder="hh"
+                  name="prepTime"
+                  value={newRecipe.prepTime}
+                  onChange={handleChange}
+                />
                 <FormControl aria-label="preparation time" placeholder="mm" />
                 <InputGroup.Append className="d-none d-xs-none d-md-block">
                   <InputGroup.Text>prep. time</InputGroup.Text>
