@@ -25,7 +25,7 @@ import { FaListOl, FaUserEdit, FaRegClock, FaTrashAlt } from 'react-icons/fa'
 import { GiCookingPot, GiForkKnifeSpoon, GiSecretBook } from 'react-icons/gi'
 import { RiKnifeLine } from 'react-icons/ri'
 
-const RecipeModal = (props, { recipes }) => {
+const RecipeModal = (props) => {
   const [newRecipe, setNewRecipe] = useState({
     recipeTitle: '',
     authorName: '',
@@ -42,16 +42,38 @@ const RecipeModal = (props, { recipes }) => {
     pictures: '',
   })
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    recipes(newRecipe)
-  }
   const handleChange = (e) => {
     console.log(e.target.value)
-    const key = e.target.name
-    setNewRecipe({ ...newRecipe, [key]: e.target.value })
+    const fieldToUpdate = e.target.name
+    setNewRecipe({ ...newRecipe, [fieldToUpdate]: e.target.value })
   }
 
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    //recipes(newRecipe)
+
+    try {
+      let res = await fetch('http://localhost:3001/recipes', {
+        method: 'POST',
+        body: JSON.stringify(newRecipe),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      console.log(
+        `clg RES of newRecipe from the fetch of RecipeModal --> ${res}`
+      )
+
+      if (res.ok) {
+        // TODO: display a green line "RECIPE SUCESSFUL SAVED"
+        emptyForm()
+      } else {
+        // TODO: display a green line "sth went wrong and couldn't save the recipe"
+      }
+    } catch (error) {
+      console.log(`Catch error of fetching a newRecipe -- ${error}`)
+    }
+  }
   return (
     <Modal
       {...props}
@@ -412,8 +434,8 @@ const RecipeModal = (props, { recipes }) => {
               as="textarea"
               aria-label="With textarea"
               placeholder="Preparation steps..."
-              name="personalNote"
-              value={newRecipe.personalNote}
+              name="prepSteps"
+              value={newRecipe.prepSteps}
               onChange={handleChange}
             />
           </InputGroup>
@@ -426,6 +448,9 @@ const RecipeModal = (props, { recipes }) => {
             <FormControl
               aria-label="With textarea"
               placeholder="Personal notes"
+              name="personalNote"
+              value={newRecipe.personalNote}
+              onChange={handleChange}
             />
           </InputGroup>
           <Form>
