@@ -1,3 +1,9 @@
+// ! Critical comment
+// * Highlighted comment
+// TODO: to do comment
+// ? question comment
+// normal comment
+
 import { useState } from 'react'
 import {
   Button,
@@ -19,7 +25,7 @@ import { FaListOl, FaUserEdit, FaRegClock, FaTrashAlt } from 'react-icons/fa'
 import { GiCookingPot, GiForkKnifeSpoon, GiSecretBook } from 'react-icons/gi'
 import { RiKnifeLine } from 'react-icons/ri'
 
-const RecipeModal = ({ recipes }) => {
+const RecipeModal = (props, { recipes }) => {
   const [newRecipe, setNewRecipe] = useState({
     recipeTitle: '',
     authorName: '',
@@ -43,7 +49,7 @@ const RecipeModal = ({ recipes }) => {
   const handleChange = (e) => {
     console.log(e.target.value)
     const key = e.target.name
-    setNewUser({ ...newRecipe, [key]: e.target.value })
+    setNewRecipe({ ...newRecipe, [key]: e.target.value })
   }
 
   return (
@@ -72,6 +78,7 @@ const RecipeModal = ({ recipes }) => {
               value={newRecipe.recipeTitle}
               onChange={handleChange}
             />
+            {/* // ? How to do it? how to grab information from dropdowns? */}
             <DropdownButton
               as={InputGroup.Append}
               variant="outline-secondary"
@@ -151,12 +158,12 @@ const RecipeModal = ({ recipes }) => {
                 </InputGroup.Prepend>
                 <FormControl
                   aria-label="preparation time"
-                  placeholder="hh"
+                  placeholder="hh:mm"
                   name="prepTime"
                   value={newRecipe.prepTime}
                   onChange={handleChange}
                 />
-                <FormControl aria-label="preparation time" placeholder="mm" />
+
                 <InputGroup.Append className="d-none d-xs-none d-md-block">
                   <InputGroup.Text>prep. time</InputGroup.Text>
                 </InputGroup.Append>
@@ -172,8 +179,13 @@ const RecipeModal = ({ recipes }) => {
                     <FaRegClock />
                   </InputGroup.Text>
                 </InputGroup.Prepend>
-                <FormControl aria-label="preparation time" placeholder="hh" />
-                <FormControl aria-label="preparation time" placeholder="mm" />
+                <FormControl
+                  aria-label="total time"
+                  placeholder="hh:mm"
+                  name="totalTime"
+                  value={newRecipe.totalTime}
+                  onChange={handleChange}
+                />
                 <InputGroup.Append>
                   <InputGroup.Text className="d-none d-xs-none d-md-block">
                     total
@@ -385,6 +397,9 @@ const RecipeModal = ({ recipes }) => {
               as="textarea"
               aria-label="With textarea"
               placeholder="Ingredients separeted by coma: flour, chocolate, baking powder..."
+              name="ingredients"
+              value={newRecipe.ingredients}
+              onChange={handleChange}
             />
           </InputGroup>
           <InputGroup className="my-3">
@@ -397,6 +412,9 @@ const RecipeModal = ({ recipes }) => {
               as="textarea"
               aria-label="With textarea"
               placeholder="Preparation steps..."
+              name="personalNote"
+              value={newRecipe.personalNote}
+              onChange={handleChange}
             />
           </InputGroup>
           <InputGroup className="my-3">
