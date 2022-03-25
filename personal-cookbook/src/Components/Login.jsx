@@ -1,6 +1,7 @@
 import logo from '../logo.svg'
-import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import GoogleButton from 'react-google-button'
 import { Button, Col, Form, Image } from 'react-bootstrap'
 
 const Login = ({ login }) => {
@@ -63,6 +64,20 @@ const Login = ({ login }) => {
         <Col>
           <Button variant="warning" type="submit">
             Sign in
+          </Button>
+          <h6 className="text-muted my-2">or</h6>
+
+          <Button
+            variant="link"
+            href="http://localhost:3001/users/googleLogin"
+            className="text-decoration-none pt-0
+            "
+          >
+            <GoogleButton
+              onClick={() => {
+                console.log('Google button clicked')
+              }}
+            />
           </Button>
         </Col>
       </Form.Group>
