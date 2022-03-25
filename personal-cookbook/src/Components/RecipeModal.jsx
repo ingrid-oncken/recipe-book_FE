@@ -121,25 +121,8 @@ const RecipeModal = (props) => {
                     name="recipeTitle"
                     value={newRecipe.recipeTitle}
                     onChange={handleChange}
+                    required
                   />
-                  {/* // ? How to do it? how to grab information from dropdowns? */}
-                  {/* <DropdownButton
-                as={InputGroup.Append}
-                variant="outline-secondary"
-                menuAlign="right"
-                title="Cathegory"
-                id="input-dropdown-modal"
-                name="cathegory"
-                value={newRecipe.cathegory}
-                onSelect={handleChange}
-              >
-                <Dropdown.Item eventKey="1">Brekfast</Dropdown.Item>
-                <Dropdown.Item eventKey="2">Salad</Dropdown.Item>
-                <Dropdown.Item eventKey="3">Lunch/Dinner</Dropdown.Item>
-                <Dropdown.Item eventKey="4">Soup</Dropdown.Item>
-                <Dropdown.Item eventKey="5">Snack</Dropdown.Item>
-                <Dropdown.Item eventKey="6">Desseart</Dropdown.Item>
-              </DropdownButton> */}
                 </InputGroup>
               </Col>
               <Col xs={6} md={4}>
@@ -287,70 +270,90 @@ const RecipeModal = (props) => {
                             type="radio"
                             label="Air-fry"
                             id="Air-fry"
-                            name="formHorizontalRadios"
+                            name="airFry"
+                            value="airFry"
+                            onChange={handleChange}
                           />
                           <Form.Check
                             inline
                             type="radio"
                             label="BBQ"
                             id="BBQ"
-                            name="formHorizontalRadios"
+                            name="bbq"
+                            value="bbq"
+                            onChange={handleChange}
                           />
                           <Form.Check
                             inline
                             type="radio"
                             label="Deep-fry"
                             id="Deep-fry"
-                            name="formHorizontalRadios"
+                            name="deep-fry"
+                            value="deep-fry"
+                            onChange={handleChange}
                           />
                           <Form.Check
                             inline
                             type="radio"
                             label="Microwave"
                             id="Microwave"
-                            name="formHorizontalRadios"
+                            name="microwave"
+                            value="microwave"
+                            onChange={handleChange}
                           />
                           <Form.Check
                             inline
                             type="radio"
                             label="Multicooker"
                             id="Multicooker"
-                            name="formHorizontalRadios"
+                            name="multicooker"
+                            value="multicooker"
+                            onChange={handleChange}
                           />
                           <Form.Check
                             inline
                             type="radio"
                             label="Oven"
                             id="Oven"
-                            name="formHorizontalRadios"
+                            name="oven"
+                            value="oven"
+                            onChange={handleChange}
                           />
                           <Form.Check
                             inline
                             type="radio"
                             label="Robot"
                             id="Robot"
-                            name="formHorizontalRadios"
+                            name="robot"
+                            value="robot"
+                            onChange={handleChange}
                           />
                           <Form.Check
                             inline
                             type="radio"
                             label="Sous vide"
                             id="Sous vide"
-                            name="formHorizontalRadios"
+                            name="sousVide"
+                            value="sousVide"
+                            onChange={handleChange}
                           />
                           <Form.Check
                             inline
                             type="radio"
                             label="Stove"
                             id="Stove"
-                            name="formHorizontalRadios"
+                            name="stove"
+                            value="stove"
+                            onChange={handleChange}
                           />
                           <Form.Check
                             inline
                             type="radio"
                             label="Vapor"
                             id="Vapor"
-                            name="formHorizontalRadios"
+                            name="vapor"
+                            value="vapor"
+                            onChange={handleChange}
                           />
                         </Form.Group>
                       </div>
@@ -495,8 +498,9 @@ const RecipeModal = (props) => {
                 onChange={handleChange}
               />
             </InputGroup>
-            <Form.Group>
-              <Form.File id="exampleFormControlFile1" />
+            <Form.Group controlId="formFileSm" className="mb-3">
+              <Form.Label>Upload your pictures</Form.Label>
+              <Form.Control type="file" size="sm" multiple />
             </Form.Group>
           </Form>
         </Container>
