@@ -133,12 +133,12 @@ const RecipeModal = (props) => {
                 value={newRecipe.cathegory}
                 onChange={handleChange}
               >
-                <Dropdown.Item href="#">Brekfast</Dropdown.Item>
-                <Dropdown.Item href="#">Salad</Dropdown.Item>
-                <Dropdown.Item href="#">Lunch/Dinner</Dropdown.Item>
-                <Dropdown.Item href="#">Soup</Dropdown.Item>
-                <Dropdown.Item href="#">Snack</Dropdown.Item>
-                <Dropdown.Item href="#">Desseart</Dropdown.Item>
+                <Dropdown.Item>Brekfast</Dropdown.Item>
+                <Dropdown.Item>Salad</Dropdown.Item>
+                <Dropdown.Item>Lunch/Dinner</Dropdown.Item>
+                <Dropdown.Item>Soup</Dropdown.Item>
+                <Dropdown.Item>Snack</Dropdown.Item>
+                <Dropdown.Item>Desseart</Dropdown.Item>
               </DropdownButton>
             </InputGroup>
             {/* End of recipe title */}
