@@ -85,15 +85,13 @@ const RecipeModal = (props) => {
       prepTime: '',
       totalTime: '',
       prepMethods: '',
-      tags: '',
+      tags: [],
       ingredients: '',
       prepSteps: '',
       personalNote: '',
       pictures: '',
     })
   }
-
-  // ? WHERE SHOULD I PLACE THE onSubmit={handleSubmit} ??? DO I NEED A FORM TO WRAP THE WHOLE MODAL?
 
   return (
     <Modal
@@ -110,20 +108,22 @@ const RecipeModal = (props) => {
         <Container>
           <Form onSubmit={handleSubmit}>
             {/* Start recipe title */}
-            <InputGroup className="mb-3">
-              <InputGroup.Prepend>
-                <InputGroup.Text id="basic-addon1">T</InputGroup.Text>
-              </InputGroup.Prepend>
-              <FormControl
-                placeholder="Recipe title"
-                aria-label="recipe title"
-                aria-describedby="basic-addon1"
-                name="recipeTitle"
-                value={newRecipe.recipeTitle}
-                onChange={handleChange}
-              />
-              {/* // ? How to do it? how to grab information from dropdowns? */}
-              <DropdownButton
+            <Row>
+              <Col xs={12} md={8}>
+                <InputGroup className="mb-3">
+                  <InputGroup.Prepend>
+                    <InputGroup.Text id="basic-addon1">T</InputGroup.Text>
+                  </InputGroup.Prepend>
+                  <FormControl
+                    placeholder="Recipe title"
+                    aria-label="recipe title"
+                    aria-describedby="basic-addon1"
+                    name="recipeTitle"
+                    value={newRecipe.recipeTitle}
+                    onChange={handleChange}
+                  />
+                  {/* // ? How to do it? how to grab information from dropdowns? */}
+                  {/* <DropdownButton
                 as={InputGroup.Append}
                 variant="outline-secondary"
                 menuAlign="right"
@@ -131,16 +131,40 @@ const RecipeModal = (props) => {
                 id="input-dropdown-modal"
                 name="cathegory"
                 value={newRecipe.cathegory}
-                onChange={handleChange}
+                onSelect={handleChange}
               >
-                <Dropdown.Item>Brekfast</Dropdown.Item>
-                <Dropdown.Item>Salad</Dropdown.Item>
-                <Dropdown.Item>Lunch/Dinner</Dropdown.Item>
-                <Dropdown.Item>Soup</Dropdown.Item>
-                <Dropdown.Item>Snack</Dropdown.Item>
-                <Dropdown.Item>Desseart</Dropdown.Item>
-              </DropdownButton>
-            </InputGroup>
+                <Dropdown.Item eventKey="1">Brekfast</Dropdown.Item>
+                <Dropdown.Item eventKey="2">Salad</Dropdown.Item>
+                <Dropdown.Item eventKey="3">Lunch/Dinner</Dropdown.Item>
+                <Dropdown.Item eventKey="4">Soup</Dropdown.Item>
+                <Dropdown.Item eventKey="5">Snack</Dropdown.Item>
+                <Dropdown.Item eventKey="6">Desseart</Dropdown.Item>
+              </DropdownButton> */}
+                </InputGroup>
+              </Col>
+              <Col xs={6} md={4}>
+                <InputGroup className="mb-3">
+                  <InputGroup.Prepend>
+                    <InputGroup.Text>C</InputGroup.Text>
+                  </InputGroup.Prepend>
+
+                  <Form.Control
+                    as="select"
+                    name="cathegory"
+                    value={newRecipe.cathegory}
+                    onChange={handleChange}
+                  >
+                    <option>Cathegory</option>
+                    <option>Brekfast</option>
+                    <option>Salad</option>
+                    <option>Lunch</option>
+                    <option>Soup</option>
+                    <option>Snack</option>
+                    <option>Desseart</option>
+                  </Form.Control>
+                </InputGroup>
+              </Col>
+            </Row>
             {/* End of recipe title */}
             <Row>
               {/* Start author name */}
