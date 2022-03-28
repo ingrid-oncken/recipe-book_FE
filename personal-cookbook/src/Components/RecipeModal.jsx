@@ -1,9 +1,3 @@
-// ! Critical comment
-// * Highlighted comment
-// TODO: to do comment
-// ? question comment
-// normal comment
-
 import { useState } from 'react'
 import {
   Button,
@@ -24,6 +18,12 @@ import { FaListOl, FaUserEdit, FaRegClock, FaTrashAlt } from 'react-icons/fa'
 
 import { GiCookingPot, GiForkKnifeSpoon, GiSecretBook } from 'react-icons/gi'
 import { RiKnifeLine } from 'react-icons/ri'
+
+// ! Critical comment
+// * Highlighted comment
+// TODO: to do comment
+// ? question comment
+// normal comment
 
 const RecipeModal = (props) => {
   const [newRecipe, setNewRecipe] = useState({
@@ -46,6 +46,22 @@ const RecipeModal = (props) => {
     console.log(e.target.value)
     const fieldToUpdate = e.target.name
     setNewRecipe({ ...newRecipe, [fieldToUpdate]: e.target.value })
+
+    const getClassName = document.querySelectorAll('.prepMethodsClass')
+    console.log(getClassName, 'getClassName')
+
+    for (let classH of getClassName) {
+      if (classH.checked) {
+        console.log(classH.checked, 'HERE')
+      }
+    }
+    // if ( === 'prepMethods') {
+    //   const selectedprepMethod = []
+    //   selectedprepMethod.push(e.target.value)
+    // } else if (controlId === 'tags') {
+    //   const selectedTag = []
+    //   selectedTag.push(e.target.value)
+    // }
   }
 
   const handleSubmit = async (e) => {
@@ -264,37 +280,39 @@ const RecipeModal = (props) => {
                   <Tab.Content>
                     <Tab.Pane eventKey="#link1">
                       <div className="mx-3 mt-2">
-                        <Form.Group controlId="formBasicCheckbox">
+                        <Form.Group>
                           <Form.Check
                             inline
-                            type="radio"
+                            type="checkbox"
                             label="Air-fry"
                             id="Air-fry"
                             name="airFry"
                             value="airFry"
                             onChange={handleChange}
+                            className="prepMethodsClass"
                           />
                           <Form.Check
                             inline
-                            type="radio"
+                            type="checkbox"
                             label="BBQ"
                             id="BBQ"
                             name="bbq"
                             value="bbq"
                             onChange={handleChange}
+                            className="prepMethodsClass"
                           />
                           <Form.Check
                             inline
-                            type="radio"
+                            type="checkbox"
                             label="Deep-fry"
                             id="Deep-fry"
                             name="deep-fry"
                             value="deep-fry"
-                            onChange={handleChange}
+                            className="prepMethodsClass"
                           />
                           <Form.Check
                             inline
-                            type="radio"
+                            type="checkbox"
                             label="Microwave"
                             id="Microwave"
                             name="microwave"
@@ -303,7 +321,7 @@ const RecipeModal = (props) => {
                           />
                           <Form.Check
                             inline
-                            type="radio"
+                            type="checkbox"
                             label="Multicooker"
                             id="Multicooker"
                             name="multicooker"
@@ -312,7 +330,7 @@ const RecipeModal = (props) => {
                           />
                           <Form.Check
                             inline
-                            type="radio"
+                            type="checkbox"
                             label="Oven"
                             id="Oven"
                             name="oven"
@@ -321,7 +339,7 @@ const RecipeModal = (props) => {
                           />
                           <Form.Check
                             inline
-                            type="radio"
+                            type="checkbox"
                             label="Robot"
                             id="Robot"
                             name="robot"
@@ -330,7 +348,7 @@ const RecipeModal = (props) => {
                           />
                           <Form.Check
                             inline
-                            type="radio"
+                            type="checkbox"
                             label="Sous vide"
                             id="Sous vide"
                             name="sousVide"
@@ -339,7 +357,7 @@ const RecipeModal = (props) => {
                           />
                           <Form.Check
                             inline
-                            type="radio"
+                            type="checkbox"
                             label="Stove"
                             id="Stove"
                             name="stove"
@@ -348,7 +366,7 @@ const RecipeModal = (props) => {
                           />
                           <Form.Check
                             inline
-                            type="radio"
+                            type="checkbox"
                             label="Vapor"
                             id="Vapor"
                             name="vapor"
@@ -360,90 +378,114 @@ const RecipeModal = (props) => {
                     </Tab.Pane>
                     <Tab.Pane eventKey="#link2">
                       <div className="mx-3 mt-2">
-                        <Form.Group controlId="formBasicCheckbox">
+                        <Form.Group>
                           <Form.Check
                             inline
                             type="checkbox"
                             label="Appetizer"
                             id="Appetizer"
-                            name="formHorizontalChekboxes"
+                            name="appetizer"
+                            value="appetizer"
+                            onChange={handleChange}
                           />
                           <Form.Check
                             inline
                             type="checkbox"
                             label="Fish"
                             id="Fish"
-                            name="formHorizontalChekboxes"
+                            name="fish"
+                            value="fish"
+                            onChange={handleChange}
                           />
                           <Form.Check
                             inline
                             type="checkbox"
                             label="Fit"
                             id="Fit"
-                            name="formHorizontalChekboxes"
+                            name="fit"
+                            value="fit"
+                            onChange={handleChange}
                           />
                           <Form.Check
                             inline
                             type="checkbox"
                             label="Gluten-free"
                             id="Gluten-free"
-                            name="formHorizontalChekboxes"
+                            name="gluten-free"
+                            value="gluten-free"
+                            onChange={handleChange}
                           />
                           <Form.Check
                             inline
                             type="checkbox"
                             label="Halal"
                             id="Halal"
-                            name="formHorizontalChekboxes"
+                            name="halal"
+                            value="halal"
+                            onChange={handleChange}
                           />
                           <Form.Check
                             inline
                             type="checkbox"
                             label="Kosher"
                             id="Kosher"
-                            name="formHorizontalChekboxes"
+                            name="kosher"
+                            value="kosher"
+                            onChange={handleChange}
                           />
                           <Form.Check
                             inline
                             type="checkbox"
                             label="Meat"
                             id="Meat"
-                            name="formHorizontalChekboxes"
+                            name="meat"
+                            value="meat"
+                            onChange={handleChange}
                           />
                           <Form.Check
                             inline
                             type="checkbox"
                             label="Poultry"
                             id="Poultry"
-                            name="formHorizontalChekboxes"
+                            name="poultry"
+                            value="poultry"
+                            onChange={handleChange}
                           />
                           <Form.Check
                             inline
                             type="checkbox"
                             label="Seafood"
                             id="Seafood"
-                            name="formHorizontalChekboxes"
+                            name="seafood"
+                            value="seafood"
+                            onChange={handleChange}
                           />
                           <Form.Check
                             inline
                             type="checkbox"
                             label="Tapas"
                             id="Tapas"
-                            name="formHorizontalChekboxes"
+                            name="tapas"
+                            value="tapas"
+                            onChange={handleChange}
                           />
                           <Form.Check
                             inline
                             type="checkbox"
                             label="Vegan"
                             id="Vegan"
-                            name="formHorizontalChekboxes"
+                            name="vegan"
+                            value="vegan"
+                            onChange={handleChange}
                           />
                           <Form.Check
                             inline
                             type="checkbox"
                             label="Ovolacto-vegetarian"
                             id="Ovolacto-vegetarian"
-                            name="formHorizontalChekboxes"
+                            name="ovolacto-vegetarian"
+                            value="ovolacto-vegetarian"
+                            onChange={handleChange}
                           />
                         </Form.Group>
                       </div>
