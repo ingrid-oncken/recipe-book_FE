@@ -3,8 +3,6 @@ import {
   Button,
   Col,
   Container,
-  Dropdown,
-  DropdownButton,
   Form,
   FormControl,
   InputGroup,
@@ -34,8 +32,8 @@ const RecipeModal = (props) => {
     nPortions: '',
     prepTime: '',
     totalTime: '',
-    prepMethods: '',
-    tags: '',
+    prepMethods: [],
+    tags: [],
     ingredients: '',
     prepSteps: '',
     personalNote: '',
@@ -44,24 +42,28 @@ const RecipeModal = (props) => {
 
   const handleChange = (e) => {
     console.log(e.target.value)
-    const fieldToUpdate = e.target.name
+    let fieldToUpdate = e.target.name
     setNewRecipe({ ...newRecipe, [fieldToUpdate]: e.target.value })
+  }
 
-    const getClassName = document.querySelectorAll('.prepMethodsClass')
-    console.log(getClassName, 'getClassName')
-
-    for (let classH of getClassName) {
-      if (classH.checked) {
-        console.log(classH.checked, 'HERE')
-      }
+  const handleCheckboxes = (e) => {
+    if (e.target.className === 'prepMethodsClass') {
+      setNewRecipe({
+        ...newRecipe,
+        prepMethods: [...newRecipe.prepMethods, e.target.value],
+      })
+    } else {
+      setNewRecipe({
+        ...newRecipe,
+        tags: [...newRecipe.tags, e.target.value],
+      })
     }
-    // if ( === 'prepMethods') {
-    //   const selectedprepMethod = []
-    //   selectedprepMethod.push(e.target.value)
-    // } else if (controlId === 'tags') {
-    //   const selectedTag = []
-    //   selectedTag.push(e.target.value)
-    // }
+    //newRecipe.prepMethods.push(e.target.value)
+  }
+
+  const fetchMethods = () => {
+
+    
   }
 
   const handleSubmit = async (e) => {
@@ -100,14 +102,42 @@ const RecipeModal = (props) => {
       nPortions: '',
       prepTime: '',
       totalTime: '',
-      prepMethods: '',
+      prepMethods: [],
       tags: [],
-      ingredients: '',
+      ingredients: [],
       prepSteps: '',
       personalNote: '',
-      pictures: '',
+      pictures: [],
     })
   }
+
+  const methodsArr = [
+    'oven',
+    'stove',
+    'robot',
+    'deep-fry',
+    'air-fry',
+    'multicooker',
+    'BBQ',
+    'sous-vide',
+    'microwave',
+  ]
+  
+  const tagsArr = [
+    'Appetizer',
+    'Fish',
+    'Fit',
+    'Gluten-free',
+    'Halal',
+    'Kosher',
+    'Meat',
+    'Poultry',
+    'Seafood',
+    'Tapas',
+    'Vegan',
+    'Ovolacto-vegetarian',
+  ]
+
 
   return (
     <Modal
@@ -281,14 +311,27 @@ const RecipeModal = (props) => {
                     <Tab.Pane eventKey="#link1">
                       <div className="mx-3 mt-2">
                         <Form.Group>
-                          <Form.Check
+                          {methodsArr.map((method) => (
+                            <Form.Check
+                              inline
+                              key={`${method}`}
+                              label={`${method}`}
+                              name={`${method}`}
+                              value={`${method}`}
+                              onChange={handleCheckboxes}
+                              type="checkbox"
+                              className="prepMethodsClass"
+                            />
+                          ))}
+
+                          {/* <Form.Check
                             inline
                             type="checkbox"
                             label="Air-fry"
                             id="Air-fry"
                             name="airFry"
                             value="airFry"
-                            onChange={handleChange}
+                            onChange={handleCheckboxes}
                             className="prepMethodsClass"
                           />
                           <Form.Check
@@ -298,7 +341,7 @@ const RecipeModal = (props) => {
                             id="BBQ"
                             name="bbq"
                             value="bbq"
-                            onChange={handleChange}
+                            onChange={handleCheckboxes}
                             className="prepMethodsClass"
                           />
                           <Form.Check
@@ -309,6 +352,7 @@ const RecipeModal = (props) => {
                             name="deep-fry"
                             value="deep-fry"
                             className="prepMethodsClass"
+                            onChange={handleCheckboxes}
                           />
                           <Form.Check
                             inline
@@ -317,7 +361,7 @@ const RecipeModal = (props) => {
                             id="Microwave"
                             name="microwave"
                             value="microwave"
-                            onChange={handleChange}
+                            onChange={handleCheckboxes}
                           />
                           <Form.Check
                             inline
@@ -326,7 +370,7 @@ const RecipeModal = (props) => {
                             id="Multicooker"
                             name="multicooker"
                             value="multicooker"
-                            onChange={handleChange}
+                            onChange={handleCheckboxes}
                           />
                           <Form.Check
                             inline
@@ -335,7 +379,7 @@ const RecipeModal = (props) => {
                             id="Oven"
                             name="oven"
                             value="oven"
-                            onChange={handleChange}
+                            onChange={handleCheckboxes}
                           />
                           <Form.Check
                             inline
@@ -344,7 +388,7 @@ const RecipeModal = (props) => {
                             id="Robot"
                             name="robot"
                             value="robot"
-                            onChange={handleChange}
+                            onChange={handleCheckboxes}
                           />
                           <Form.Check
                             inline
@@ -353,7 +397,7 @@ const RecipeModal = (props) => {
                             id="Sous vide"
                             name="sousVide"
                             value="sousVide"
-                            onChange={handleChange}
+                            onChange={handleCheckboxes}
                           />
                           <Form.Check
                             inline
@@ -362,7 +406,7 @@ const RecipeModal = (props) => {
                             id="Stove"
                             name="stove"
                             value="stove"
-                            onChange={handleChange}
+                            onChange={handleCheckboxes}
                           />
                           <Form.Check
                             inline
@@ -371,8 +415,8 @@ const RecipeModal = (props) => {
                             id="Vapor"
                             name="vapor"
                             value="vapor"
-                            onChange={handleChange}
-                          />
+                            onChange={handleCheckboxes}
+                          /> */}
                         </Form.Group>
                       </div>
                     </Tab.Pane>
@@ -386,7 +430,7 @@ const RecipeModal = (props) => {
                             id="Appetizer"
                             name="appetizer"
                             value="appetizer"
-                            onChange={handleChange}
+                            onChange={handleCheckboxes}
                           />
                           <Form.Check
                             inline
@@ -395,7 +439,7 @@ const RecipeModal = (props) => {
                             id="Fish"
                             name="fish"
                             value="fish"
-                            onChange={handleChange}
+                            onChange={handleCheckboxes}
                           />
                           <Form.Check
                             inline
@@ -404,7 +448,7 @@ const RecipeModal = (props) => {
                             id="Fit"
                             name="fit"
                             value="fit"
-                            onChange={handleChange}
+                            onChange={handleCheckboxes}
                           />
                           <Form.Check
                             inline
@@ -413,7 +457,7 @@ const RecipeModal = (props) => {
                             id="Gluten-free"
                             name="gluten-free"
                             value="gluten-free"
-                            onChange={handleChange}
+                            onChange={handleCheckboxes}
                           />
                           <Form.Check
                             inline
@@ -422,7 +466,7 @@ const RecipeModal = (props) => {
                             id="Halal"
                             name="halal"
                             value="halal"
-                            onChange={handleChange}
+                            onChange={handleCheckboxes}
                           />
                           <Form.Check
                             inline
@@ -431,7 +475,7 @@ const RecipeModal = (props) => {
                             id="Kosher"
                             name="kosher"
                             value="kosher"
-                            onChange={handleChange}
+                            onChange={handleCheckboxes}
                           />
                           <Form.Check
                             inline
@@ -440,7 +484,7 @@ const RecipeModal = (props) => {
                             id="Meat"
                             name="meat"
                             value="meat"
-                            onChange={handleChange}
+                            onChange={handleCheckboxes}
                           />
                           <Form.Check
                             inline
@@ -449,7 +493,7 @@ const RecipeModal = (props) => {
                             id="Poultry"
                             name="poultry"
                             value="poultry"
-                            onChange={handleChange}
+                            onChange={handleCheckboxes}
                           />
                           <Form.Check
                             inline
@@ -458,7 +502,7 @@ const RecipeModal = (props) => {
                             id="Seafood"
                             name="seafood"
                             value="seafood"
-                            onChange={handleChange}
+                            onChange={handleCheckboxes}
                           />
                           <Form.Check
                             inline
@@ -467,7 +511,7 @@ const RecipeModal = (props) => {
                             id="Tapas"
                             name="tapas"
                             value="tapas"
-                            onChange={handleChange}
+                            onChange={handleCheckboxes}
                           />
                           <Form.Check
                             inline
@@ -476,7 +520,7 @@ const RecipeModal = (props) => {
                             id="Vegan"
                             name="vegan"
                             value="vegan"
-                            onChange={handleChange}
+                            onChange={handleCheckboxes}
                           />
                           <Form.Check
                             inline
@@ -485,7 +529,7 @@ const RecipeModal = (props) => {
                             id="Ovolacto-vegetarian"
                             name="ovolacto-vegetarian"
                             value="ovolacto-vegetarian"
-                            onChange={handleChange}
+                            onChange={handleCheckboxes}
                           />
                         </Form.Group>
                       </div>
