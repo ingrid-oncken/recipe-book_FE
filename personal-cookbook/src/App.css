@@ -3,15 +3,16 @@
 }
 
 .App-logo {
-  height: 13vmin;
+  height: 15vmin;
   pointer-events: none;
   filter: drop-shadow(2px 4px 6px gray);
-  /* position: absolute; */
-  z-index: 5;
 }
 
+nav .fixed-top {
+  top: 0.4 vh;
+}
 nav .navbar-nav > a {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 
 .sidebar-panel {

@@ -9,12 +9,12 @@ const MainNavbar = () => {
   const [modalShow, setModalShow] = useState(false)
 
   return (
-    <Navbar className="blue-saphire" variant="dark" expand="lg">
+    <Navbar className="blue-saphire p-4" variant="dark" expand="lg">
       <Container>
         <Navbar.Brand href="/">
           <img
             src={logo}
-            className="App-logo"
+            className="App-logo fixed-top m-auto"
             alt="logo"
             roundedCircle
           />
