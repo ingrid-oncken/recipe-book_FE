@@ -46,20 +46,48 @@ const RecipeModal = (props) => {
     setNewRecipe({ ...newRecipe, [fieldToUpdate]: e.target.value })
   }
 
-  const handleCheckboxes = (e) => {
-    if (e.target.className === 'prepMethodsClass') {
+  const handlePrepCheckboxes = (e) => {
+    const checked = e.target.checked
+
+    if (checked) {
       setNewRecipe({
         ...newRecipe,
         prepMethods: [...newRecipe.prepMethods, e.target.value],
       })
+      console.log('newRecipe.prepMethods ADD', newRecipe.prepMethods)
     } else {
+      
+      )
+
+      // newRecipe.prepMethods.filter((method) =>
+      //   console.log('METHOD', method, e.target.method)
+      // )
+
+      console.log('newRecipe.prepMethods REMOVES', newRecipe.prepMethods)
+    }
+  }
+  const handleTagsCheckboxes = (e) => {
+    if (e.target.checked) {
       setNewRecipe({
         ...newRecipe,
         tags: [...newRecipe.tags, e.target.value],
       })
+      console.log('newRecipe.tags', newRecipe.prepMethods)
     }
-    //newRecipe.prepMethods.push(e.target.value)
   }
+  //   if (e.target.className === 'prepMethodsClass') {
+  //     setNewRecipe({
+  //       ...newRecipe,
+  //       prepMethods: [...newRecipe.prepMethods, e.target.value],
+  //     })
+  //   } else if (e.target.className === 'tagsClass') {
+  //     setNewRecipe({
+  //       ...newRecipe,
+  //       tags: [...newRecipe.tags, e.target.value],
+  //     })
+  //     console.log('newRecipe.tags', newRecipe.tags)
+  //   }
+  // }
 
   const fetchMethods = () => {}
 
@@ -314,7 +342,7 @@ const RecipeModal = (props) => {
                               label={`${method}`}
                               name={`${method}`}
                               value={`${method}`}
-                              onChange={handleCheckboxes}
+                              onChange={handlePrepCheckboxes}
                               type="checkbox"
                               className="prepMethodsClass"
                             />
@@ -325,14 +353,14 @@ const RecipeModal = (props) => {
                     <Tab.Pane eventKey="#link2">
                       <div className="mx-3 mt-2">
                         <Form.Group>
-                          {tagsArr.map((method) => (
+                          {tagsArr.map((tags) => (
                             <Form.Check
                               inline
-                              key={`${method}`}
-                              label={`${method}`}
-                              name={`${method}`}
-                              value={`${method}`}
-                              onChange={handleCheckboxes}
+                              key={`${tags}`}
+                              label={`${tags}`}
+                              name={`${tags}`}
+                              value={`${tags}`}
+                              onChange={handleTagsCheckboxes}
                               type="checkbox"
                               className="tagsClass"
                             />
