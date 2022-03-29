@@ -3,8 +3,11 @@
 }
 
 .App-logo {
-  height: 6vmin;
+  height: 13vmin;
   pointer-events: none;
+  filter: drop-shadow(2px 4px 6px gray);
+  /* position: absolute; */
+  z-index: 5;
 }
 
 nav .navbar-nav > a {
@@ -23,6 +26,10 @@ nav .navbar-nav > a {
   padding: 15px;
   margin: auto;
   margin-top: 20vh;
+}
+
+.blue-saphire {
+  background-color: #05668d;
 }
 
 #recipe-modal .input-group-text {
@@ -57,4 +64,3 @@ nav .navbar-nav > a {
 #full-recipe-container > section li {
   list-style-type: none;
 }
-

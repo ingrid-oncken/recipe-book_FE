@@ -9,10 +9,15 @@ const MainNavbar = () => {
   const [modalShow, setModalShow] = useState(false)
 
   return (
-    <Navbar bg="warning" variant="dark" expand="lg">
+    <Navbar className="blue-saphire" variant="dark" expand="lg">
       <Container>
         <Navbar.Brand href="/">
-          <img src={logo} className="App-logo" alt="logo" />
+          <img
+            src={logo}
+            className="App-logo"
+            alt="logo"
+            roundedCircle
+          />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -20,7 +25,7 @@ const MainNavbar = () => {
             <Link to="/" className="nav-link">
               Home
             </Link>
-           
+
             <Nav.Link onClick={() => setModalShow(true)}>+ Recipe</Nav.Link>
             <Link to="/login" className="nav-link">
               Login
