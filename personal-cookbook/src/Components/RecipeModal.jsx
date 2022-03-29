@@ -47,17 +47,22 @@ const RecipeModal = (props) => {
   }
 
   const handlePrepCheckboxes = (e) => {
-    const checked = e.target.checked
-
-    if (checked) {
+    if (e.target.checked) {
       setNewRecipe({
         ...newRecipe,
         prepMethods: [...newRecipe.prepMethods, e.target.value],
       })
+
       console.log('newRecipe.prepMethods ADD', newRecipe.prepMethods)
     } else {
-      
+      const newRecipieMethod = newRecipe.prepMethods.filter(
+        (method) => method !== e.target.value
       )
+      console.log('newRecipieMethod', newRecipieMethod)
+      setNewRecipe({
+        ...newRecipe,
+        prepMethods: [...newRecipieMethod],
+      })
 
       // newRecipe.prepMethods.filter((method) =>
       //   console.log('METHOD', method, e.target.method)
