@@ -52,8 +52,6 @@ const RecipeModal = (props) => {
         ...newRecipe,
         prepMethods: [...newRecipe.prepMethods, e.target.value],
       })
-
-      console.log('newRecipe.prepMethods ADD', newRecipe.prepMethods)
     } else {
       const newRecipieMethod = newRecipe.prepMethods.filter(
         (method) => method !== e.target.value
@@ -67,10 +65,13 @@ const RecipeModal = (props) => {
       // newRecipe.prepMethods.filter((method) =>
       //   console.log('METHOD', method, e.target.method)
       // )
-
-      console.log('newRecipe.prepMethods REMOVES', newRecipe.prepMethods)
     }
+    console.log('newRecipe.prepMethods out of IF ELSE', newRecipe.prepMethods)
   }
+  console.log(
+    'newRecipe.prepMethods out of handlePrepCheckboxes',
+    newRecipe.prepMethods
+  )
   const handleTagsCheckboxes = (e) => {
     if (e.target.checked) {
       setNewRecipe({
