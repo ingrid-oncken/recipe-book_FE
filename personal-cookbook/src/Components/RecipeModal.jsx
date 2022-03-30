@@ -81,19 +81,7 @@ const RecipeModal = (props) => {
       console.log('newRecipe.tags', newRecipe.prepMethods)
     }
   }
-  //   if (e.target.className === 'prepMethodsClass') {
-  //     setNewRecipe({
-  //       ...newRecipe,
-  //       prepMethods: [...newRecipe.prepMethods, e.target.value],
-  //     })
-  //   } else if (e.target.className === 'tagsClass') {
-  //     setNewRecipe({
-  //       ...newRecipe,
-  //       tags: [...newRecipe.tags, e.target.value],
-  //     })
-  //     console.log('newRecipe.tags', newRecipe.tags)
-  //   }
-  // }
+
 
   const fetchMethods = () => {}
 
