@@ -34,8 +34,8 @@ const RecipeModal = (props) => {
     totalTime: '',
     prepMethods: [],
     tags: [],
-    ingredients: '',
-    prepSteps: '',
+    ingredients: [],
+    prepSteps: [],
     personalNote: '',
     pictures: '',
   })
@@ -43,7 +43,22 @@ const RecipeModal = (props) => {
   const handleChange = (e) => {
     console.log(e.target.value)
     let fieldToUpdate = e.target.name
-    setNewRecipe({ ...newRecipe, [fieldToUpdate]: e.target.value })
+
+    if (e.target.name === 'ingredients') {
+      const ingredientValue = e.target.value.split(',')
+      console.log('ingredientValue', ingredientValue)
+
+      setNewRecipe({ ...newRecipe, [fieldToUpdate]: ingredientValue })
+    } else if (e.target.name === 'prepSteps') {
+      const prepStepsValue = e.target.value.split(',')
+      console.log('prepStepsValue', prepStepsValue)
+
+      setNewRecipe({ ...newRecipe, [fieldToUpdate]: prepStepsValue })
+    } else {
+      setNewRecipe({ ...newRecipe, [fieldToUpdate]: e.target.value })
+    }
+
+    // console.log('newRecipe', newRecipe)
   }
 
   const handlePrepCheckboxes = (e) => {
@@ -61,56 +76,57 @@ const RecipeModal = (props) => {
         ...newRecipe,
         prepMethods: [...newRecipieMethod],
       })
-
-      // newRecipe.prepMethods.filter((method) =>
-      //   console.log('METHOD', method, e.target.method)
-      // )
     }
-    console.log('newRecipe.prepMethods out of IF ELSE', newRecipe.prepMethods)
   }
-  console.log(
-    'newRecipe.prepMethods out of handlePrepCheckboxes',
-    newRecipe.prepMethods
-  )
+  // console.log(
+  //   'newRecipe.prepMethods out of handlePrepCheckboxes',
+  //   newRecipe.prepMethods
+  // )
   const handleTagsCheckboxes = (e) => {
     if (e.target.checked) {
       setNewRecipe({
         ...newRecipe,
         tags: [...newRecipe.tags, e.target.value],
       })
-      console.log('newRecipe.tags', newRecipe.prepMethods)
+    } else {
+      const newTags = newRecipe.tags.filter((tag) => tag !== e.target.value)
+      console.log('newTags', newTags)
+      setNewRecipe({
+        ...newRecipe,
+        tags: [...newTags],
+      })
     }
   }
-
+  // console.log('newRecipe.tags out of handlePrepCheckboxes', newRecipe.tags)
 
   const fetchMethods = () => {}
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    //recipes(newRecipe)
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault()
+  //   //recipes(newRecipe)
 
-    try {
-      let res = await fetch('http://localhost:3001/recipes', {
-        method: 'POST',
-        body: JSON.stringify(newRecipe),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-      console.log(
-        `clg RES of newRecipe from the fetch of RecipeModal --> ${res}`
-      )
+  //   try {
+  //     let res = await fetch('http://localhost:3001/recipes', {
+  //       method: 'POST',
+  //       body: JSON.stringify(newRecipe),
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //     })
+  //     console.log(
+  //       `clg RES of newRecipe from the fetch of RecipeModal --> ${res}`
+  //     )
 
-      if (res.ok) {
-        // TODO: display a green line "RECIPE SUCESSFUL SAVED"
-        emptyModal()
-      } else {
-        // TODO: display a green line "sth went wrong and couldn't save the recipe"
-      }
-    } catch (error) {
-      console.log(`Catch error of fetching a newRecipe -- ${error}`)
-    }
-  }
+  //     if (res.ok) {
+  //       // TODO: display a green line "RECIPE SUCESSFUL SAVED"
+  //       emptyModal()
+  //     } else {
+  //       // TODO: display a green line "sth went wrong and couldn't save the recipe"
+  //     }
+  //   } catch (error) {
+  //     console.log(`Catch error of fetching a newRecipe -- ${error}`)
+  //   }
+  // }
 
   const emptyModal = () => {
     setNewRecipe({
@@ -170,7 +186,8 @@ const RecipeModal = (props) => {
       </Modal.Header>
       <Modal.Body>
         <Container>
-          <Form onSubmit={handleSubmit}>
+          {/* onSubmit={handleSubmit} */}
+          <Form>
             {/* Start recipe title */}
             <Row>
               <Col xs={12} md={8}>

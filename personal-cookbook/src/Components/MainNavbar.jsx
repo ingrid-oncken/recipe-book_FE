@@ -12,12 +12,7 @@ const MainNavbar = () => {
     <Navbar className="blue-saphire p-4" variant="dark" expand="lg">
       <Container>
         <Navbar.Brand href="/">
-          <img
-            src={logo}
-            className="App-logo fixed-top m-auto"
-            alt="logo"
-            roundedCircle
-          />
+          <img src={logo} className="App-logo fixed-top m-auto" alt="logo" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
