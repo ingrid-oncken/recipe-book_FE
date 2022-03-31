@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import FileUpload from './FileUpload'
+
 import {
   Button,
   Col,
@@ -99,51 +101,36 @@ const RecipeModal = (props) => {
   }
   // console.log('newRecipe.tags out of handlePrepCheckboxes', newRecipe.tags)
 
-  const fetchMethods = () => {}
+  // const fetchMethods = () => {}
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault()
-  //   //recipes(newRecipe)
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    console.log('Handle submtit before try')
+    try {
+      let res = await fetch(
+        `http://localhost:3001/recipes/62458c33f9aee5b9918c66c7`,
+        {
+          method: 'POST',
+          body: JSON.stringify(newRecipe),
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization:
+              'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjQ1OGMzM2Y5YWVlNWI5OTE4YzY2YzciLCJpYXQiOjE2NDg3MjUwNDMsImV4cCI6MTY1MjM1Mzg0M30.ZVdJ2momwLXA7dCJF9BuiK43PS4q_p4ZYSNyb4j75Y0',
+          },
+        }
+      )
+      console.log('clg RES of newRecipe from the fetch of RecipeModal -->', res)
+      console.log('newRecipe.recipeTitle', newRecipe.recipeTitle)
 
-  //   try {
-  //     let res = await fetch('http://localhost:3001/recipes', {
-  //       method: 'POST',
-  //       body: JSON.stringify(newRecipe),
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //     })
-  //     console.log(
-  //       `clg RES of newRecipe from the fetch of RecipeModal --> ${res}`
-  //     )
-
-  //     if (res.ok) {
-  //       // TODO: display a green line "RECIPE SUCESSFUL SAVED"
-  //       emptyModal()
-  //     } else {
-  //       // TODO: display a green line "sth went wrong and couldn't save the recipe"
-  //     }
-  //   } catch (error) {
-  //     console.log(`Catch error of fetching a newRecipe -- ${error}`)
-  //   }
-  // }
-
-  const emptyModal = () => {
-    setNewRecipe({
-      recipeTitle: '',
-      authorName: '',
-      user: '',
-      cathegory: '',
-      nPortions: '',
-      prepTime: '',
-      totalTime: '',
-      prepMethods: [],
-      tags: [],
-      ingredients: [],
-      prepSteps: '',
-      personalNote: '',
-      pictures: [],
-    })
+      if (res.ok) {
+        setNewRecipe()
+      } else {
+        console.log('ELSE')
+        // TODO: display a green line "sth went wrong and couldn't save the recipe"
+      }
+    } catch (error) {
+      console.log('Catch error of fetching a newRecipe --', error)
+    }
   }
 
   const methodsArr = [
@@ -187,7 +174,7 @@ const RecipeModal = (props) => {
       <Modal.Body>
         <Container>
           {/* onSubmit={handleSubmit} */}
-          <Form>
+          <Form onSubmit={handleSubmit}>
             {/* Start recipe title */}
             <Row>
               <Col xs={12} md={8}>
@@ -221,7 +208,7 @@ const RecipeModal = (props) => {
                     <option>Cathegory</option>
                     <option>Brekfast</option>
                     <option>Salad</option>
-                    <option>Lunch</option>
+                    <option>Lunch/Dinner</option>
                     <option>Soup</option>
                     <option>Snack</option>
                     <option>Desseart</option>
@@ -327,7 +314,6 @@ const RecipeModal = (props) => {
               </Col>
               {/* End of total time */}
             </Row>
-
             {/* Start tags Tab */}
             <Tab.Container id="list-group-tabs-example">
               <Row>
@@ -384,7 +370,6 @@ const RecipeModal = (props) => {
               </Row>
             </Tab.Container>
             {/* End of tags Tab */}
-
             <InputGroup className="my-3">
               <InputGroup.Prepend>
                 <InputGroup.Text>
@@ -409,7 +394,7 @@ const RecipeModal = (props) => {
               <FormControl
                 as="textarea"
                 aria-label="With textarea"
-                placeholder="Preparation steps..."
+                placeholder="Preparation steps separeted by *"
                 name="prepSteps"
                 value={newRecipe.prepSteps}
                 onChange={handleChange}
@@ -429,10 +414,8 @@ const RecipeModal = (props) => {
                 onChange={handleChange}
               />
             </InputGroup>
-            <Form.Group controlId="formFileSm" className="mb-3">
-              <Form.Label>Upload your pictures</Form.Label>
-              <Form.Control type="file" size="sm" multiple />
-            </Form.Group>
+            <FileUpload />
+            <Button type="submit">Save</Button>
           </Form>
         </Container>
       </Modal.Body>
@@ -440,11 +423,10 @@ const RecipeModal = (props) => {
         <Button
           variant="outline-danger"
           className="mr-auto"
-          // onClick={emptyModal()}
+          //onClick={emptyModal()}
         >
           <FaTrashAlt />
         </Button>
-        <Button onClick={props.onHide}>Save</Button>
       </Modal.Footer>
     </Modal>
   )
