@@ -115,17 +115,22 @@ const RecipeModal = (props) => {
           headers: {
             'Content-Type': 'application/json',
             Authorization:
-              'Bearer ,
+              'Bearer ',
           },
         }
       )
+
       console.log('clg RES of newRecipe from the fetch of RecipeModal -->', res)
-      console.log('newRecipe.recipeTitle', newRecipe.recipeTitle)
+      console.log('newRecipe.authorName', newRecipe.authorName)
+
+      const output = await res.json()
+      console.log('OUTPUT', output)
 
       if (res.ok) {
-        setNewRecipe()
+        setNewRecipe(output)
+        console.log('CLG RES IF RES.OK', res)
       } else {
-        console.log('ELSE')
+        console.log('ELSE === !res.ok')
         // TODO: display a green line "sth went wrong and couldn't save the recipe"
       }
     } catch (error) {
@@ -185,7 +190,7 @@ const RecipeModal = (props) => {
                   <FormControl
                     placeholder="Recipe title"
                     aria-label="recipe title"
-                    aria-describedby="basic-addon1"
+                    aria-describedby="recipe title"
                     name="recipeTitle"
                     value={newRecipe.recipeTitle}
                     onChange={handleChange}
@@ -205,13 +210,13 @@ const RecipeModal = (props) => {
                     value={newRecipe.cathegory}
                     onChange={handleChange}
                   >
-                    <option>Cathegory</option>
-                    <option>Brekfast</option>
-                    <option>Salad</option>
-                    <option>Lunch/Dinner</option>
-                    <option>Soup</option>
-                    <option>Snack</option>
-                    <option>Desseart</option>
+                    <option value="Cathegory">Cathegory</option>
+                    <option value="Brekfast">Brekfast</option>
+                    <option value="Salad">Salad</option>
+                    <option value="Lunch/Dinner">Lunch/Dinner</option>
+                    <option value="Soup">Soup</option>
+                    <option value="Snack">Snack</option>
+                    <option value="Desseart">Desseart</option>
                   </Form.Control>
                 </InputGroup>
               </Col>

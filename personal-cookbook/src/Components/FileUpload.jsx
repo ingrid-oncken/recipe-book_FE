@@ -6,16 +6,14 @@ export default class FileUpload extends Component {
     return (
       <Container>
         <Row>
-          <Form>
-            <Form.Group className="mb-3" size="sm">
-              <Form.Label>Upload your pictures</Form.Label>
-              <input
-                type="file"
-                name="image"
-                onchange={(e) => this.props.addFile(e)}
-              />
-            </Form.Group>
-          </Form>
+          <Form.Group className="mb-3" size="sm">
+            <Form.Label>Upload your pictures</Form.Label>
+            <input
+              type="file"
+              name="image"
+              onChange={(e) => this.props.addFile(e)}
+            />
+          </Form.Group>
         </Row>
       </Container>
     )
