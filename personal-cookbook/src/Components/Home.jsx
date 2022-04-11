@@ -7,8 +7,6 @@ const Home = () => {
     <Col sm={12} md={9} xl={8}>
       <CardDeck className="mb-3 mt-5">
         <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
       </CardDeck>
     </Col>
   )

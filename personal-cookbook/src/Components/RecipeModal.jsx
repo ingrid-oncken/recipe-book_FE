@@ -80,10 +80,10 @@ const RecipeModal = (props) => {
       })
     }
   }
-  // console.log(
-  //   'newRecipe.prepMethods out of handlePrepCheckboxes',
-  //   newRecipe.prepMethods
-  // )
+  console.log(
+    'newRecipe.prepMethods out of handlePrepCheckboxes',
+    newRecipe.prepMethods
+  )
   const handleTagsCheckboxes = (e) => {
     if (e.target.checked) {
       setNewRecipe({
@@ -114,8 +114,7 @@ const RecipeModal = (props) => {
           body: JSON.stringify(newRecipe),
           headers: {
             'Content-Type': 'application/json',
-            Authorization:
-              'Bearer ',
+            Authorization: 'Bearer ',
           },
         }
       )
