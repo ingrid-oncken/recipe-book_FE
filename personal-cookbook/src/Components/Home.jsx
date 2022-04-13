@@ -10,13 +10,12 @@ const Home = () => {
     console.log('fetch recipes before try')
     try {
       let res = await fetch(
-        `http://localhost:3001/recipes/62458c33f9aee5b9918c66c7`,
+        `${process.env.REACT_APP_URL_FE}/recipes/62458c33f9aee5b9918c66c7`,
         {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
-            Authorization:
-              `${process.env.REACT_TOKEN_USER}`,
+            Authorization: `${process.env.REACT_APP_TOKEN_USER}`,
           },
         }
       )
