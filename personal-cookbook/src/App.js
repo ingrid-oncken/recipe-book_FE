@@ -14,8 +14,9 @@ function App() {
       <div className="App d-flex flex-column min-vh-100">
         <Routes>
           <Route path="/" exact element={<Layout />} className="App">
-            <Route path="/" element={<Home />} />
-            <Route path="/fullrecipe" element={<FullRecipe />} />
+            <Route path="/" element={<Home />}>
+              <Route path="/fullrecipe" element={<FullRecipe />} />
+            </Route>
           </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />

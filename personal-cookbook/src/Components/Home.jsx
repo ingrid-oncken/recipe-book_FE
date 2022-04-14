@@ -7,7 +7,7 @@ const Home = () => {
   const [recipe, setRecipe] = useState([])
 
   const fetchRecipes = async (e) => {
-    console.log('fetch recipes before try')
+    //console.log('fetch recipes before try')
     try {
       let res = await fetch(
         `${process.env.REACT_APP_URL_FE}/recipes/62458c33f9aee5b9918c66c7`,
