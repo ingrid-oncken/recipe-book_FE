@@ -12,6 +12,7 @@ import {
 
 import MainNavbar from './MainNavbar'
 import { Outlet } from 'react-router-dom'
+import Home from './Home'
 
 const Layout = (props) => (
   <>
@@ -220,8 +221,11 @@ const Layout = (props) => (
             </Accordion>
           </Col>
           <Outlet />
-        </Row>
         {/* SIDEBAR END */}
+        {/* HOME STARTS */}
+        <Home />
+        {/* HOME ENDS */}
+        </Row>
       </main>
     </Container>
   </>
