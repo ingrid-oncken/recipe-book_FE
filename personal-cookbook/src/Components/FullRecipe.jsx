@@ -5,29 +5,36 @@ import { Container, Image, Tab } from 'react-bootstrap'
 import IngredientsTab from './IngredientsTab'
 import MethodTab from './MethodTab'
 import Tabs from 'react-bootstrap/Tabs'
+import Layout from './Layout'
 
 const FullRecipe = () => {
   //const [key, setKey] = useState('home')
 
   return (
-    <Container id="full-recipe-container" className="border rounded shadow-sm">
-      <Image src={Macarons} className="mt-2" rounded fluid />
+    <>
+      <Layout />
+      <Container
+        id="full-recipe-container"
+        className="border rounded shadow-sm"
+      >
+        <Image src={Macarons} className="mt-2" rounded fluid />
 
-      <section className="mt-4">
-        <h4 className="text-dark">Macarons</h4>
-        <Tabs defaultActiveKey="second">
-          <Tab eventKey="first" title="Ingredients">
-            <IngredientsTab />
-          </Tab>
-          <Tab eventKey="second" title="Method">
-            <MethodTab />
-          </Tab>
-          <Tab eventKey="third" title="Video" disabled>
-            Hii, I am 3rd tab content
-          </Tab>
-        </Tabs>
-      </section>
-    </Container>
+        <section className="mt-4">
+          <h4 className="text-dark">Macarons</h4>
+          <Tabs defaultActiveKey="second">
+            <Tab eventKey="first" title="Ingredients">
+              <IngredientsTab />
+            </Tab>
+            <Tab eventKey="second" title="Method">
+              <MethodTab />
+            </Tab>
+            <Tab eventKey="third" title="Video" disabled>
+              Hii, I am 3rd tab content
+            </Tab>
+          </Tabs>
+        </section>
+      </Container>
+    </>
   )
 }
 export default FullRecipe

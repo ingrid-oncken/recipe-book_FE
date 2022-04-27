@@ -221,10 +221,10 @@ const Layout = (props) => (
             </Accordion>
           </Col>
           <Outlet />
-        {/* SIDEBAR END */}
-        {/* HOME STARTS */}
-        <Home />
-        {/* HOME ENDS */}
+          {/* SIDEBAR END */}
+          {/* HOME STARTS */}
+          {/* <Home /> */}
+          {/* HOME ENDS */}
         </Row>
       </main>
     </Container>
