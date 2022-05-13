@@ -7,7 +7,7 @@ const Home = () => {
   const [recipe, setRecipe] = useState([])
 
   const fetchRecipes = async (e) => {
-    //console.log('fetch recipes before try')
+    console.log('fetch recipes before try')
     try {
       let res = await fetch(
         `${process.env.REACT_APP_URL_FE}/recipes/62458c33f9aee5b9918c66c7`,
@@ -20,11 +20,11 @@ const Home = () => {
         }
       )
 
-      //console.log('clg RES -->', res)
-      // console.log('RECIPEEEESSSS!!!', recipe[2].recipeTitle)
+      console.log('clg RES -->', res)
+      console.log('RECIPEEEESSSS!!!', recipe)
 
       const output = await res.json()
-      //console.log('OUTPUT', output[2].recipeTitle)
+      console.log('OUTPUT', output)
 
       if (res.ok) {
         setRecipe(output)
@@ -39,8 +39,8 @@ const Home = () => {
     }
   }
 
-  // const oneRecipe = recipe[2]
-  // console.log('recipe!!!', oneRecipe)
+  const oneRecipe = recipe[0]
+  console.log('ONE recipe!!!', oneRecipe)
 
   useEffect(() => {
     fetchRecipes()

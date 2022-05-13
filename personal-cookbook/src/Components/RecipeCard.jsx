@@ -1,7 +1,15 @@
 import { Card } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const RecipeCards = ({ data }) => {
+  const history = useNavigate()
+
+  const handleClick = (recipeId) => {
+    const url = `recipe/${recipeId}`
+    history.push(url)
+  }
+
+  console.log('console log data', data._id)
   return (
     <>
       <Card>
@@ -13,10 +21,15 @@ const RecipeCards = ({ data }) => {
             This card has supporting text below as a natural lead-in to
             additional content.
           </Card.Text>
-          <Link className="card-link" to="/fullrecipe">
+          <Link
+            className="card-link"
+            to="/fullrecipe"
+            onClick={() => handleClick(data._id)}
+          >
             See full recipe...
           </Link>
         </Card.Body>
+        ()
         <Card.Footer>
           <small className="text-muted">Last opened 3 mins ago</small>
         </Card.Footer>
