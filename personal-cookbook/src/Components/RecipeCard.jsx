@@ -1,15 +1,34 @@
-import { Card } from 'react-bootstrap'
+import { Button, Card } from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router-dom'
+import * as React from 'react'
+import * as ReactDOM from 'react-dom'
+import { unstable_HistoryRouter as HistoryRouter } from 'react-router-dom'
+import { createBrowserHistory } from 'history'
+
+// const history = createBrowserHistory({ window })
+
+// ReactDOM.render(
+//   <HistoryRouter history={history}>
+//     {/* The rest of your app goes here */}
+//   </HistoryRouter>,
+//   root
+// )
 
 const RecipeCards = ({ data }) => {
   const history = useNavigate()
+  console.log(data._id, 'DATA._ID')
 
   const handleClick = (recipeId) => {
+    console.log(recipeId)
+    //event.preventDefault()
     const url = `recipe/${recipeId}`
-    history.push(url)
+    console.log(url)
+    //alert(data.url)
+    history(url)
+    //.push(url)
   }
 
-  console.log('console log data', data._id)
+  //console.log('console log data', data._id)
   return (
     <>
       <Card>
@@ -21,13 +40,13 @@ const RecipeCards = ({ data }) => {
             This card has supporting text below as a natural lead-in to
             additional content.
           </Card.Text>
-          <Link
+          <Button
             className="card-link"
-            to="/fullrecipe"
+            //to={data._Id}
             onClick={() => handleClick(data._id)}
           >
             See full recipe...
-          </Link>
+          </Button>
         </Card.Body>
         ()
         <Card.Footer>
