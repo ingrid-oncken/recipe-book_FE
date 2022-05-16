@@ -8,11 +8,15 @@ import Tabs from 'react-bootstrap/Tabs'
 import Layout from './Layout'
 import { useParams } from 'react-router-dom'
 
+console.log('entering FullRecipe component')
+
 const FullRecipe = () => {
   const { recipeId } = useParams()
 
+  console.log('recipeId HERE from fullRecipe', recipeId)
   const [singleRecipe, setSingleRecipe] = useState({})
 
+  console.log('BEFORE FETCH')
   const fetchSingleRecipe = async (e) => {
     console.log('fetch SINGLE RECIPE')
     try {
@@ -27,7 +31,7 @@ const FullRecipe = () => {
         }
       )
 
-      console.log('clg RES -->', res)
+      console.log('clg RES from FULL RECIPE COMPONENT-->', res)
       //console.log('ONE RECIPE FROM FULL RECIPE PAGE', recipe)
 
       const output = await res.json()
@@ -45,6 +49,7 @@ const FullRecipe = () => {
       console.log('Catch error of fetching Recipes --', error)
     }
   }
+  console.log('singleRecipe.recipeTitle', singleRecipe.recipeTitle)
 
   useEffect(() => {
     fetchSingleRecipe()
@@ -59,20 +64,22 @@ const FullRecipe = () => {
       >
         <Image src={Macarons} className="mt-2" rounded fluid />
 
-        <section className="mt-4">
-          <h4 className="text-dark"></h4>
-          <Tabs defaultActiveKey="second">
-            <Tab eventKey="first" title="Ingredients">
-              <IngredientsTab />
-            </Tab>
-            <Tab eventKey="second" title="Method">
-              <MethodTab />
-            </Tab>
-            <Tab eventKey="third" title="Video" disabled>
-              Hii, I am 3rd tab content
-            </Tab>
-          </Tabs>
-        </section>
+        {singleRecipe._id && (
+          <section className="mt-4">
+            <h4 className="text-dark">{singleRecipe.recipeTitle}</h4>
+            <Tabs defaultActiveKey="second">
+              <Tab eventKey="first" title="Ingredients">
+                <IngredientsTab />
+              </Tab>
+              <Tab eventKey="second" title="Method">
+                <MethodTab />
+              </Tab>
+              <Tab eventKey="third" title="Video" disabled>
+                Hii, I am 3rd tab content
+              </Tab>
+            </Tabs>
+          </section>
+        )}
       </Container>
     </>
   )

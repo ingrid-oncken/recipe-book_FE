@@ -1,9 +1,9 @@
 import { Button, Card } from 'react-bootstrap'
-import { Link, useNavigate } from 'react-router-dom'
-import * as React from 'react'
-import * as ReactDOM from 'react-dom'
-import { unstable_HistoryRouter as HistoryRouter } from 'react-router-dom'
-import { createBrowserHistory } from 'history'
+import { useNavigate } from 'react-router-dom'
+// import * as React from 'react'
+// import * as ReactDOM from 'react-dom'
+// import { unstable_HistoryRouter as HistoryRouter } from 'react-router-dom'
+// import { createBrowserHistory } from 'history'
 
 // const history = createBrowserHistory({ window })
 
@@ -16,14 +16,14 @@ import { createBrowserHistory } from 'history'
 
 const RecipeCards = ({ data }) => {
   const history = useNavigate()
-  console.log(data._id, 'DATA._ID')
+  //console.log(data._id, 'DATA._ID')
 
   const handleClick = (recipeId) => {
-    console.log(recipeId)
+    //console.log('console.log(recipeId) in RecipeCard component', recipeId)
     //event.preventDefault()
-    const url = `recipe/${recipeId}`
-    console.log(url)
-    //alert(data.url)
+    const url = `fullrecipe/${recipeId}`
+    //console.log('this is the console.log(url)', url)
+
     history(url)
     //.push(url)
   }

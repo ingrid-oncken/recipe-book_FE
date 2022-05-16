@@ -16,7 +16,10 @@ function App() {
           <Route path="/" exact element={<Layout />} className="App">
             <Route path="/" element={<Home />}></Route>
           </Route>
-          <Route path="/fullrecipe" element={<FullRecipe />} />
+          {/* <Route path="/fullrecipe/:id" element={<FullRecipe />} /> */}
+          <Route path="/fullrecipe">
+            <Route path=":recipeId" element={<FullRecipe />} />
+          </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
         </Routes>
