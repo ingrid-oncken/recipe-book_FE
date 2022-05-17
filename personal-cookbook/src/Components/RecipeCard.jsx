@@ -1,18 +1,5 @@
 import { Button, Card } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
-// import * as React from 'react'
-// import * as ReactDOM from 'react-dom'
-// import { unstable_HistoryRouter as HistoryRouter } from 'react-router-dom'
-// import { createBrowserHistory } from 'history'
-
-// const history = createBrowserHistory({ window })
-
-// ReactDOM.render(
-//   <HistoryRouter history={history}>
-//     {/* The rest of your app goes here */}
-//   </HistoryRouter>,
-//   root
-// )
 
 const RecipeCards = ({ data }) => {
   const history = useNavigate()

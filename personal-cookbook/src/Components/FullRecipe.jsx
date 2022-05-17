@@ -8,17 +8,17 @@ import Tabs from 'react-bootstrap/Tabs'
 import Layout from './Layout'
 import { useParams } from 'react-router-dom'
 
-console.log('entering FullRecipe component')
+//console.log('entering FullRecipe component')
 
 const FullRecipe = () => {
   const { recipeId } = useParams()
 
-  console.log('recipeId HERE from fullRecipe', recipeId)
+  //console.log('recipeId HERE from fullRecipe', recipeId)
   const [singleRecipe, setSingleRecipe] = useState({})
 
-  console.log('BEFORE FETCH')
+  //console.log('BEFORE FETCH')
   const fetchSingleRecipe = async (e) => {
-    console.log('fetch SINGLE RECIPE')
+    //console.log('fetch SINGLE RECIPE')
     try {
       let res = await fetch(
         `${process.env.REACT_APP_URL_FE}/recipes/${recipeId}`,
@@ -31,25 +31,25 @@ const FullRecipe = () => {
         }
       )
 
-      console.log('clg RES from FULL RECIPE COMPONENT-->', res)
+      //console.log('clg RES from FULL RECIPE COMPONENT-->', res)
       //console.log('ONE RECIPE FROM FULL RECIPE PAGE', recipe)
 
       const output = await res.json()
-      console.log('OUTPUT FROM FULL RECIPE PAGE', output)
+      //console.log('OUTPUT FROM FULL RECIPE PAGE', output)
 
       if (res.ok) {
         setSingleRecipe(output)
 
-        console.log('CLG RES IF RES.OK', res)
+        //console.log('CLG RES IF RES.OK', res)
       } else {
         console.log('ELSE === !res.ok')
-        // console.log('CLG RES ELS !RES.OK')
+        
       }
     } catch (error) {
       console.log('Catch error of fetching Recipes --', error)
     }
   }
-  console.log('singleRecipe.recipeTitle', singleRecipe.recipeTitle)
+  //console.log('singleRecipe.recipeTitle', singleRecipe.recipeTitle)
 
   useEffect(() => {
     fetchSingleRecipe()

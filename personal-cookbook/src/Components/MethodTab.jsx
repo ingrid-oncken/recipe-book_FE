@@ -3,7 +3,7 @@ import { Card, Tab, Col } from 'react-bootstrap'
 const MethodTab = () => {
   return (
     <Card.Body>
-      <Card.Text className="text-left">
+      <div className="text-left card-text">
         <Card.Subtitle className="my-2 text-muted">
           Meringue shell:
         </Card.Subtitle>
@@ -54,7 +54,7 @@ const MethodTab = () => {
             using.
           </li>
         </ol>
-      </Card.Text>
+      </div>
     </Card.Body>
   )
 }
