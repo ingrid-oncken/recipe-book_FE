@@ -3,61 +3,58 @@ import { useState, useEffect } from 'react'
 import { Card, Form, ListGroup } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
 
-const IngredientsTab = () => {
-  const { recipeId } = useParams()
-  console.log('recipeId from INGREDIENTS tab', recipeId)
+const IngredientsTab = ({ props }) => {
+  // const { recipeId } = useParams()
+  // console.log('recipeId from INGREDIENTS tab', recipeId)
+  console.log('props from INGREDIENTS tab', props)
+  console.log('props from INGREDIENTS tab', props._id)
+  console.log('props from INGREDIENTS tab', props.recipeTitle)
 
-  const Ingredients = () => {
-  const { recipeId } = useParams()
+  // //const Ingredients = () => {
 
-  //console.log('recipeId HERE from Ingredients', recipeId)
-  const [ingredients, setingredients] = useState({})
+  // //console.log('recipeId HERE from Ingredients', recipeId)
+  // const [ingredients, setIngredients] = useState({})
 
-  //console.log('BEFORE FETCH')
-  const fetchIngredients = async (e) => {
-    //console.log('fetch Ingredients before try')
-    try {
-      let res = await fetch(
-        `${process.env.REACT_APP_URL_FE}/recipes/${recipeId}`,
-        {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `${process.env.REACT_APP_TOKEN_USER}`,
-          },
-        }
-      )
+  // //console.log('BEFORE FETCH')
+  // const fetchIngredients = async (e) => {
+  //   //console.log('fetch Ingredients before try')
+  //   try {
+  //     let res = await fetch(
+  //       `${process.env.REACT_APP_URL_FE}/recipes/${recipeId}`,
+  //       {
+  //         method: 'GET',
+  //         headers: {
+  //           'Content-Type': 'application/json',
+  //           Authorization: `${process.env.REACT_APP_TOKEN_USER}`,
+  //         },
+  //       }
+  //     )
 
-      //console.log('clg RES from INGREDIENTS TAB COMPONENT-->', res)
-    
+  //     //console.log('clg RES from INGREDIENTS TAB COMPONENT-->', res)
 
-      const output = await res.json()
-      //console.log('OUTPUT FROM FULL RECIPE PAGE', output)
+  //     const output = await res.json()
+  //     //console.log('OUTPUT FROM FULL RECIPE PAGE', output)
 
-      if (res.ok) {
-        setIngredients(output)
+  //     if (res.ok) {
+  //       setIngredients(output)
 
-        //console.log('CLG RES IF RES.OK', res)
-      } else {
-        console.log('ELSE === !res.ok')
-        
-      }
-    } catch (error) {
-      console.log('Catch error of fetching Recipes --', error)
-    }
-  }
-  //console.log('singleIngredients.recipeTitle', singleRecipe.recipeTitle)
+  //       //console.log('CLG RES IF RES.OK', res)
+  //     } else {
+  //       console.log('ELSE === !res.ok')
+  //     }
+  //   } catch (error) {
+  //     console.log('Catch error of fetching Recipes --', error)
+  //   }
+  // }
+  // //console.log('singleIngredients.recipeTitle', singleRecipe.recipeTitle)
 
-  useEffect(() => {
-    fetchIngredients()
-  }, [])
-
+  // useEffect(() => {
+  //   fetchIngredients()
+  // }, [])
 
   return (
     <Card.Body>
-      <Card.Subtitle className="my-3 text-muted text-left">
-        
-      </Card.Subtitle>
+      <Card.Subtitle className="my-3 text-muted text-left"></Card.Subtitle>
       <div className="text-left card-text">
         <ul>
           <li className="my-2">
