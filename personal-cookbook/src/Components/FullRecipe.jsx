@@ -8,6 +8,7 @@ import Tabs from 'react-bootstrap/Tabs'
 import Layout from './Layout'
 import { useParams } from 'react-router-dom'
 import EditModal from './EditModal'
+import MainNavbar from './MainNavbar'
 
 //console.log('entering FullRecipe component')
 
@@ -89,13 +90,13 @@ const FullRecipe = () => {
 
   return (
     <>
-      <Layout />
+      {/* NAVBAR COMPONENT */}
+      <MainNavbar />
       <Container
         id="full-recipe-container"
-        className="border rounded shadow-sm"
+        className="mt-4 border rounded shadow-sm"
       >
-        <Image src={Macarons} className="mt-2" rounded fluid />
-
+        <Image src={Macarons} className="mt-2 d-block m-auto" rounded fluid />
         {singleRecipe._id && (
           <section className="mt-4">
             <h4 className="text-dark">{singleRecipe.recipeTitle}</h4>
