@@ -7,6 +7,7 @@ import MethodTab from './MethodTab'
 import Tabs from 'react-bootstrap/Tabs'
 import Layout from './Layout'
 import { useParams } from 'react-router-dom'
+import EditModal from './EditModal'
 
 //console.log('entering FullRecipe component')
 
@@ -15,6 +16,7 @@ const FullRecipe = () => {
 
   //console.log('recipeId HERE from fullRecipe', recipeId)
   const [singleRecipe, setSingleRecipe] = useState({})
+  const [openModal, setOpenModal] = useState(false)
 
   //console.log('BEFORE FETCH')
   const fetchSingleRecipe = async (e) => {
@@ -110,8 +112,16 @@ const FullRecipe = () => {
             </Tabs>
           </section>
         )}
-        <Button variant="warning">EDIT BUTTON</Button>
-        <Button variant="danger">EDIT BUTTON</Button>
+        <EditModal openModal={openModal} setOpenModal={setOpenModal} />
+        <Button
+          variant="warning"
+          onClick={() => {
+            setOpenModal(true)
+          }}
+        >
+          EDIT BUTTON
+        </Button>
+        <Button variant="danger">DELET BUTTON</Button>
       </Container>
     </>
   )
