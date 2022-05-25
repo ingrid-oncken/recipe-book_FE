@@ -113,7 +113,11 @@ const FullRecipe = () => {
             </Tabs>
           </section>
         )}
-        <EditModal openModal={openModal} setOpenModal={setOpenModal} />
+        <EditModal
+          props={singleRecipe}
+          openModal={openModal}
+          setOpenModal={setOpenModal}
+        />
         <Button
           variant="warning"
           onClick={() => {
