@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import FileUpload from './FileUpload'
 
 import {
@@ -25,7 +25,9 @@ import { RiKnifeLine } from 'react-icons/ri'
 // ? question comment
 // normal comment
 
-const EditModal = ({ openModal, setOpenModal }) => {
+const EditModal = ({ openModal, setOpenModal, singleRecipeProps }) => {
+  console.log('singleRecipeProps', singleRecipeProps.recipeTitle)
+
   const [newRecipe, setNewRecipe] = useState({
     recipeTitle: '',
     authorName: '',
@@ -34,13 +36,32 @@ const EditModal = ({ openModal, setOpenModal }) => {
     nPortions: '',
     prepTime: '',
     totalTime: '',
-    prepMethods: [],
-    tags: [],
-    ingredients: [],
-    prepSteps: [],
+    prepMethods: '',
+    tags: '',
+    ingredients: '',
+    prepSteps: '',
     personalNote: '',
     pictures: '',
   })
+
+  useEffect(() => {
+    setNewRecipe({
+      recipeTitle: singleRecipeProps.recipeTitle,
+      authorName: singleRecipeProps.authorName,
+      user: singleRecipeProps.user,
+      cathegory: singleRecipeProps.cathegory,
+      nPortions: singleRecipeProps.nPortions,
+      prepTime: singleRecipeProps.prepTime,
+      totalTime: singleRecipeProps.totalTime,
+      prepMethods: singleRecipeProps.prepMethods,
+      tags: singleRecipeProps.tags,
+      ingredients: singleRecipeProps.ingredients,
+      prepSteps: singleRecipeProps.prepSteps,
+      personalNote: singleRecipeProps.personalNote,
+      pictures: singleRecipeProps.pictures,
+    })
+    console.log('USE EFFECT newRecipe', newRecipe)
+  }, [openModal])
 
   const handleChange = (e) => {
     console.log(e.target.value)
@@ -108,7 +129,7 @@ const EditModal = ({ openModal, setOpenModal }) => {
     console.log('Handle submtit before try')
     try {
       let res = await fetch(
-        `http://localhost:3001/recipes/modifyrecipe/`,
+        `http://localhost:3001/recipes/modifyrecipe/${singleRecipeProps._id}`,
         {
           method: 'POST',
           body: JSON.stringify(newRecipe),
@@ -202,6 +223,7 @@ const EditModal = ({ openModal, setOpenModal }) => {
                     onChange={handleChange}
                     required
                   />
+                  {console.log('newRecipe', newRecipe)}
                 </InputGroup>
               </Col>
               <Col xs={6} md={4}>
