@@ -105,7 +105,7 @@ const FullRecipe = () => {
                 <IngredientsTab props={singleRecipe} />
               </Tab>
               <Tab eventKey="second" title="Method">
-                <MethodTab />
+                <MethodTab props={singleRecipe} />
               </Tab>
               <Tab eventKey="third" title="Video" disabled>
                 Hii, I am 3rd tab content

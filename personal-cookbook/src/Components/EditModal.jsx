@@ -108,7 +108,7 @@ const EditModal = ({ openModal, setOpenModal }) => {
     console.log('Handle submtit before try')
     try {
       let res = await fetch(
-        `http://localhost:3001/recipes/62458c33f9aee5b9918c66c7`,
+        `http://localhost:3001/recipes/modifyrecipe/`,
         {
           method: 'POST',
           body: JSON.stringify(newRecipe),
