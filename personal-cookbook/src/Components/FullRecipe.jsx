@@ -45,43 +45,43 @@ const FullRecipe = () => {
 
         //console.log('CLG RES IF RES.OK', res)
       } else {
-        console.log('ELSE === !res.ok')
+        console.log('ELSE === !res.ok FULL RECIPE')
       }
     } catch (error) {
-      console.log('Catch error of fetching Recipes --', error)
+      console.log('Catch error of fetching Recipes, FULL RECIPE COMPONENT --', error)
     }
   }
 
-  const handleEdit = async (e) => {
-    try {
-      let res = await fetch(
-        `${process.env.REACT_APP_URL_FE}/recipes/${recipeId}`,
-        {
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `${process.env.REACT_APP_TOKEN_USER}`,
-          },
-        }
-      )
+  // const handleEdit = async (e) => {
+  //   try {
+  //     let res = await fetch(
+  //       `${process.env.REACT_APP_URL_FE}/recipes/${recipeId}`,
+  //       {
+  //         method: 'PUT',
+  //         headers: {
+  //           'Content-Type': 'application/json',
+  //           Authorization: `${process.env.REACT_APP_TOKEN_USER}`,
+  //         },
+  //       }
+  //     )
 
-      //console.log('clg RES from FULL RECIPE COMPONENT-->', res)
-      //console.log('ONE RECIPE FROM FULL RECIPE PAGE', recipe)
+  //     //console.log('clg RES from FULL RECIPE COMPONENT-->', res)
+  //     //console.log('ONE RECIPE FROM FULL RECIPE PAGE', recipe)
 
-      const output = await res.json()
-      //console.log('OUTPUT FROM FULL RECIPE PAGE', output)
+  //     const output = await res.json()
+  //     //console.log('OUTPUT FROM FULL RECIPE PAGE', output)
 
-      if (res.ok) {
-        setSingleRecipe(output)
+  //     if (res.ok) {
+  //       setSingleRecipe(output)
 
-        //console.log('CLG RES IF RES.OK', res)
-      } else {
-        console.log('ELSE === !res.ok')
-      }
-    } catch (error) {
-      console.log('Catch error of fetching Recipes --', error)
-    }
-  }
+  //       //console.log('CLG RES IF RES.OK', res)
+  //     } else {
+  //       console.log('ELSE === !res.ok')
+  //     }
+  //   } catch (error) {
+  //     console.log('Catch error of fetching Recipes -- ', error)
+  //   }
+  // }
   //console.log('singleRecipe.recipeTitle', singleRecipe.recipeTitle)
 
   useEffect(() => {

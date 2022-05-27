@@ -129,20 +129,19 @@ const EditModal = ({ openModal, setOpenModal, singleRecipeProps }) => {
     console.log('Handle submtit before try')
     try {
       let res = await fetch(
-        `http://localhost:3001/recipes/modifyrecipe/${singleRecipeProps._id}`,
+        `${process.env.REACT_APP_URL_FE}/recipes/modifyrecipe/${singleRecipeProps._id}`,
         {
-          method: 'POST',
+          method: 'PUT',
           body: JSON.stringify(newRecipe),
           headers: {
             'Content-Type': 'application/json',
-            Authorization:
-              'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjQ1OGMzM2Y5YWVlNWI5OTE4YzY2YzciLCJpYXQiOjE2NDg3MjUwNDMsImV4cCI6MTY1MjM1Mzg0M30.ZVdJ2momwLXA7dCJF9BuiK43PS4q_p4ZYSNyb4j75Y0',
+            Authorization: `${process.env.REACT_APP_TOKEN_USER}`,
           },
         }
       )
 
-      console.log('clg RES of newRecipe from the fetch of RecipeModal -->', res)
-      console.log('newRecipe.authorName', newRecipe.authorName)
+      console.log('clg RES of newRecipe from the fetch of EDIT modal -->', res)
+      // console.log('newRecipe.authorName', newRecipe.authorName)
 
       const output = await res.json()
       console.log('OUTPUT', output)
