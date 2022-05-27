@@ -154,7 +154,7 @@ const EditModal = ({ openModal, setOpenModal, singleRecipeProps }) => {
         // TODO: display a green line "sth went wrong and couldn't save the recipe"
       }
     } catch (error) {
-      console.log('Catch error of fetching a newRecipe --', error)
+      console.log('Catch error of fetching a newRecipe -- EDIT MODAL component', error)
     }
   }
 
