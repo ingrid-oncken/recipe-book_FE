@@ -21,7 +21,7 @@ const Layout = (props) => (
 
     <Container fluid>
       {/* MAIN CONTAINS SIDEBAR + CONTENT */}
-      <main>
+      <>
         {/* SIDEBAR START */}
         <Row className="mt-3 flex-xl-nowrap">
           <Col sm={12} md={3} xl={2} className="sidebar-panel bg-light">
@@ -226,7 +226,8 @@ const Layout = (props) => (
           {/* <Home /> */}
           {/* HOME ENDS */}
         </Row>
-      </main>
+        <Home />
+      </>
     </Container>
   </>
 )

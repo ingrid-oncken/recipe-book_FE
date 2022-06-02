@@ -28,7 +28,7 @@ const MainNavbar = () => {
           </Nav>
         </Navbar.Collapse>
       </Container>
-      <RecipeModal show={modalShow} onHide={() => setModalShow(false)} />
+      {/* <RecipeModal show={modalShow} onHide={() => setModalShow(false)} /> */}
     </Navbar>
   )
 }
